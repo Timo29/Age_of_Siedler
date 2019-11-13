@@ -42,14 +42,17 @@ public class Player : MonoBehaviour
         else
         {
             target = homeZone.position;
+            target = RandomPointInHome(homeZone.position);
         }
 
         yield return null;
     }
 
-    void Update()
+    public static Vector3 RandomPointInHome(Vector3 zone)
     {
-        Debug.Log(workResource + "  workResource");
-        Debug.Log(target + " target");
+        return new Vector3(
+            Random.Range(zone.x + 2.5f, zone.x - 2.5f),
+            0.5f,
+            Random.Range(zone.z + 2.5f, zone.z - 2.5f));
     }
 }

@@ -131,7 +131,8 @@ MonoBehaviour:
   mark: {fileID: 5378352073880235853}
   maxCargo: 50
   currentCargo: 0
-  workTime: 1
+  workTime: 0.5
+  workAmount: 10
   isWorking: 0
 --- !u!195 &7585828309725135898
 NavMeshAgent:
