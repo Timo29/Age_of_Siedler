@@ -65,6 +65,7 @@ public class PlayerManager_v2 : MonoBehaviour
                     currentTarget = hitInfo.point;
                     
                     currentResident.GetComponent<Player>().target = currentTarget;
+                    currentResident.GetComponent<Player>().workResource = hitInfo.transform.gameObject.GetComponent<Resource>();
                     currentResident.GetComponent<Player>().isWorking = true;
                     currentResident.GetComponent<Animator>().SetBool("isMoving", true);
                 }

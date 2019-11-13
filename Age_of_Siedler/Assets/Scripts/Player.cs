@@ -14,19 +14,42 @@ public class Player : MonoBehaviour
     public int maxCargo;
     public int currentCargo;
     public float workTime;
+    public int workAmount;
 
     [SerializeField]
     internal bool isWorking;
-    internal Resources workResourc;
+    internal Resource workResource;
+
+    private Transform homeZone;
+
+
+    void Awake()
+    {
+        homeZone = GameObject.FindGameObjectWithTag("homeZone").transform;
+    }
 
     IEnumerator Work()
     {
+        if (workResource != null)
+        {
             while (currentCargo < maxCargo)
             {
                 yield return new WaitForSeconds(workTime);
-                currentCargo += 5; 
-            }
+                currentCargo += workAmount;
+                workResource.resourceAmount -= workAmount;
+            } 
+        }
+        else
+        {
+            target = homeZone.position;
+        }
 
         yield return null;
+    }
+
+    void Update()
+    {
+        Debug.Log(workResource + "  workResource");
+        Debug.Log(target + " target");
     }
 }

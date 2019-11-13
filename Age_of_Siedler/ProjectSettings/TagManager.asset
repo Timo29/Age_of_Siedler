@@ -8,6 +8,7 @@ TagManager:
   - resident
   - work
   - warehouse
+  - homeZone
   layers:
   - Default
   - TransparentFX
