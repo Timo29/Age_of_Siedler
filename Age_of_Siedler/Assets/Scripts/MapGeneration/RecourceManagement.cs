@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class RecourceManagement : MonoBehaviour
 {
-    public ReworkedMapGenerator reworkedMapGenerator;
+
+
+    void reworkedMapGeneration()
+    {
+
+    }
 
     //public GenerateRecourceMap()
     //{
