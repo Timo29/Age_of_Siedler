@@ -11,6 +11,8 @@ TagManager:
   - resourceWood
   - resourceStone
   - building
+  - house
+  - floor
   layers:
   - Default
   - TransparentFX
