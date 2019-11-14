@@ -100,10 +100,6 @@ public class SpawnHouseScript : MonoBehaviour
                 dorf.transform.position = hit.point;
                 lagerbase.transform.position = hit.point;
             }
-            else
-            {
-                return;
-            }
 
             if (Input.GetMouseButtonDown(0))
             {
