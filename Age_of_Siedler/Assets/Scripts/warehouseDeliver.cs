@@ -16,9 +16,19 @@ public class warehouseDeliver : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Player>().isWorking)
             {
-                gm.Resources += other.gameObject.GetComponent<Player>().currentCargo;
-                other.gameObject.GetComponent<Player>().currentCargo = 0;
-                other.gameObject.GetComponent<Animator>().SetBool("isMoving", true);
+                Player player = other.gameObject.GetComponent<Player>();
+                if (player.stone)
+                {
+                    gm.stone += player.currentCargo;
+                    player.currentCargo = 0;
+                    other.gameObject.GetComponent<Animator>().SetBool("isMoving", true);
+                }
+                else if (player.wood)
+                {
+                    gm.wood += player.currentCargo;
+                    player.currentCargo = 0;
+                    other.gameObject.GetComponent<Animator>().SetBool("isMoving", true);
+                }
             } 
         }
     }

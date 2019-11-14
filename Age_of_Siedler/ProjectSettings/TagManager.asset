@@ -6,9 +6,10 @@ TagManager:
   tags:
   - GameManager
   - resident
-  - work
   - warehouse
   - homeZone
+  - resourceWood
+  - resourceStone
   layers:
   - Default
   - TransparentFX

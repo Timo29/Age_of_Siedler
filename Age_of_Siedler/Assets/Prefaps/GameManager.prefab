@@ -43,4 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f29d3649a233c4992c45c8d9682140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Resources: 0
+  wood: 0
+  stone: 0
+  nms: {fileID: 0}

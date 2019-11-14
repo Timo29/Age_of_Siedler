@@ -51,25 +51,50 @@ public class PlayerManager_v2 : MonoBehaviour
             {
                 Debug.Log(hitInfo.transform.tag + " Target Tag");
 
-                if (hitInfo.transform.tag != "work")
+                if (hitInfo.transform.tag == "resourceWood" || hitInfo.transform.tag == "resourceStone")
                 {
-                    currentResident.GetComponent<Player>().isWorking = false;
-                    currentTarget = hitInfo.point;
+                    Player player = currentResident.GetComponent<Player>();
+                    //currentTarget = hitInfo.point;
+                    currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
+                    player.target = currentTarget;
+                    player.workResource = hitInfo.transform.gameObject.GetComponent<Resource>();
+                    player.isWorking = true;
+                    switch (hitInfo.transform.tag)
+                    {
+                        case "resourceWood":
+                            Debug.Log("Wood");
+                            player.wood = true;
+                            break;
+                        case "resourceStone":
+                            Debug.Log("Stone");
+                            player.stone = true;
+                            break;
 
-                    currentResident.GetComponent<Player>().target = currentTarget;
+                        default:
+                            break;
+                    }
 
-                    currentResident.GetComponent<Animator>().SetBool("isMoving", true); 
+                    currentResident.GetComponent<Animator>().SetBool("isMoving", true);
                 }
-                else if(hitInfo.transform.tag == "work")
+                else
                 {
+                    Player player = currentResident.GetComponent<Player>();
                     currentTarget = hitInfo.point;
-                    
-                    currentResident.GetComponent<Player>().target = currentTarget;
-                    currentResident.GetComponent<Player>().workResource = hitInfo.transform.gameObject.GetComponent<Resource>();
-                    currentResident.GetComponent<Player>().isWorking = true;
+                    player.isWorking = false;
+                    player.wood = false;
+                    player.stone = false;
+                    player.target = currentTarget;
                     currentResident.GetComponent<Animator>().SetBool("isMoving", true);
                 }
             }
         }
+    }
+
+    public static Vector3 RandomPointInResource(Vector3 zone)
+    {
+        return new Vector3(
+            Random.Range(zone.x + 1.5f, zone.x - 1.5f),
+            0.5f,
+            Random.Range(zone.z + 1.5f, zone.z - 1.5f));
     }
 }
