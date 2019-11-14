@@ -120,12 +120,12 @@ public class ReworkedMapGenerator : MonoBehaviour
                 if (state)
                 {
                     block = Instantiate(grasBlock, transform, false);
-                    block.transform.localPosition = new Vector3(x, y, 0);
+                    block.transform.localPosition = new Vector3(x, 0, y);
                 }
                 else
                 {
                     block = Instantiate(waterBlock, transform, false);
-                    block.transform.localPosition = new Vector3(x, y, 0);
+                    block.transform.localPosition = new Vector3(x, 0, y);
                 }
                 gameMap[x, y] = block.transform;
             }
@@ -250,13 +250,13 @@ public class ReworkedMapGenerator : MonoBehaviour
                 {
                     Debug.Log("SetStone");
                     block2 = Instantiate(stoneBlock, transform, false);
-                    block2.transform.localPosition = new Vector3(x, y, 1);
+                    block2.transform.localPosition = new Vector3(x, 1, y);
                 }
                 else if(recourceMap[x,y] == 2)
                 {
                     Debug.Log("SetWood");
                     block2 = Instantiate(woodBlock, transform, false);
-                    block2.transform.localPosition = new Vector3(x, y, 1);
+                    block2.transform.localPosition = new Vector3(x, 1, y);
                 }
             }
         }

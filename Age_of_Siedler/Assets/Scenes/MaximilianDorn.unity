@@ -245,8 +245,8 @@ MonoBehaviour:
   width: 100
   height: 80
   randomFillPercent: 30
-  recourceChance: 90
-  woodStoneRatio: 97
+  recourceChance: 85
+  woodStoneRatio: 90
   normalizeCount: 15
 --- !u!4 &341094637
 Transform:
