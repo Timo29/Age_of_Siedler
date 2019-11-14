@@ -50,42 +50,88 @@ public class PlayerManager_v2 : MonoBehaviour
             if (currentResident != null)
             {
                 Debug.Log(hitInfo.transform.tag + " Target Tag");
-
-                if (hitInfo.transform.tag == "resourceWood" || hitInfo.transform.tag == "resourceStone")
+                Player player = currentResident.GetComponent<Player>();
+                switch (hitInfo.transform.tag)
                 {
-                    Player player = currentResident.GetComponent<Player>();
-                    //currentTarget = hitInfo.point;
-                    currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
-                    player.target = currentTarget;
-                    player.workResource = hitInfo.transform.gameObject.GetComponent<Resource>();
-                    player.isWorking = true;
-                    switch (hitInfo.transform.tag)
-                    {
-                        case "resourceWood":
-                            Debug.Log("Wood");
-                            player.wood = true;
-                            break;
-                        case "resourceStone":
-                            Debug.Log("Stone");
-                            player.stone = true;
-                            break;
 
-                        default:
-                            break;
-                    }
 
-                    currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                    case "resourceWood":
+                        currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
+                        player.target = currentTarget;
+                        player.workResource = hitInfo.transform.gameObject.GetComponent<Resource>();
+                        player.isWorking = true;
+                        player.wood = true;
+                        currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        break;
+
+                    case "resourceStone":
+                        currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
+                        player.target = currentTarget;
+                        player.workResource = hitInfo.transform.gameObject.GetComponent<Resource>();
+                        player.isWorking = true;
+                        player.stone = true;
+                        currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        break;
+
+                    case "building":
+                        currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
+                        player.target = currentTarget;
+                        player.building = hitInfo.transform.gameObject.GetComponent<Building>();
+                        player.isWorking = true;
+                        player.build = true;
+                        currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        break;
+                    default:
+                        currentTarget = hitInfo.point;
+                        player.isWorking = false;
+                        player.wood = false;
+                        player.stone = false;
+                        player.build = false;
+                        player.target = currentTarget;
+                        currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        break;
                 }
-                else
-                {
-                    Player player = currentResident.GetComponent<Player>();
-                    currentTarget = hitInfo.point;
-                    player.isWorking = false;
-                    player.wood = false;
-                    player.stone = false;
-                    player.target = currentTarget;
-                    currentResident.GetComponent<Animator>().SetBool("isMoving", true);
-                }
+                //if (hitInfo.transform.tag == "resourceWood" || hitInfo.transform.tag == "resourceStone")
+                //{
+                //    Player player = currentResident.GetComponent<Player>();
+                //    //currentTarget = hitInfo.point;
+                //    currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
+                //    player.target = currentTarget;
+                //    player.workResource = hitInfo.transform.gameObject.GetComponent<Resource>();
+                //    player.isWorking = true;
+                //    switch (hitInfo.transform.tag)
+                //    {
+                //        case "resourceWood":
+                //            Debug.Log("Wood");
+                //            player.wood = true;
+                //            break;
+                //        case "resourceStone":
+                //            Debug.Log("Stone");
+                //            player.stone = true;
+                //            break;
+
+                //        default:
+                //            break;
+                //    }
+
+                //    currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                //}
+                //else if(hitInfo.transform.tag == "building")
+                //{
+
+                //}
+
+                //else
+                //{
+                //    Player player = currentResident.GetComponent<Player>();
+                //    currentTarget = hitInfo.point;
+                //    player.isWorking = false;
+                //    player.wood = false;
+                //    player.stone = false;
+                //    player.build = false;
+                //    player.target = currentTarget;
+                //    currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                //}
             }
         }
     }

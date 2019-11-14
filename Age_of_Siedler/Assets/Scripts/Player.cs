@@ -20,9 +20,14 @@ public class Player : MonoBehaviour
     internal bool wood;
     internal bool stone;
 
+    [Header("Build")]
+    internal Building building;
+    internal bool build;
+
     [SerializeField]
     internal bool isWorking;
     internal Resource workResource;
+
 
     IEnumerator Work()
     {
@@ -39,6 +44,19 @@ public class Player : MonoBehaviour
         {
             target = transform.position;
         }
+
+        yield return null;
+    }
+
+    IEnumerator Build()
+    {
+        if(building != null)
+            while (building.buildTime > 0)
+            {
+                yield return new WaitForSeconds(1f);
+                building.buildTime -= 1f;
+            }
+
 
         yield return null;
     }

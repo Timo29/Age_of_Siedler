@@ -24,6 +24,15 @@ public class miningState : StateMachineBehaviour
         {
             animator.SetBool("isDeliver", true);
         }
+        else if(aiController.currentCargo > 0 && aiController.workResource == null)
+        {
+            aiController.StopCoroutine("Work");
+            animator.SetBool("isDeliver", true);
+        }
+        else if (aiController.workResource == null && aiController.currentCargo == 0)
+        {
+            animator.SetBool("isMining", false);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

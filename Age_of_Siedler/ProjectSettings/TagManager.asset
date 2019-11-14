@@ -10,6 +10,7 @@ TagManager:
   - homeZone
   - resourceWood
   - resourceStone
+  - building
   layers:
   - Default
   - TransparentFX
