@@ -15,8 +15,8 @@ public class Resource : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position, new Vector3(3f, 1f, 3f));
-    }
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireCube(transform.position, new Vector3(3f, 1f, 3f));
+    //}
 }
