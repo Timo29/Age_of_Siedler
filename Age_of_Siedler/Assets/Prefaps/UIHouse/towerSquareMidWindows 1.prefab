@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 1000159630821317684}
   - component: {fileID: 1000159630821317687}
   - component: {fileID: 1000159630821317686}
-  - component: {fileID: 2609666390444229524}
+  - component: {fileID: 3419862180638395831}
   m_Layer: 0
-  m_Name: towerSquareMidWindows
-  m_TagString: Untagged
+  m_Name: towerSquareMidWindows 1
+  m_TagString: house
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2609666390444229524
+--- !u!114 &3419862180638395831
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
