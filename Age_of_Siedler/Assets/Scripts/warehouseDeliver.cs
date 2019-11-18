@@ -21,12 +21,14 @@ public class warehouseDeliver : MonoBehaviour
                 {
                     gm.stone += player.currentCargo;
                     player.currentCargo = 0;
+                    player.work.fillAmount = 0;
                     other.gameObject.GetComponent<Animator>().SetBool("isMoving", true);
                 }
                 else if (player.wood)
                 {
                     gm.wood += player.currentCargo;
                     player.currentCargo = 0;
+                    player.work.fillAmount = 0;
                     other.gameObject.GetComponent<Animator>().SetBool("isMoving", true);
                 }
             } 

@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class GameManager : MonoBehaviour
 {
     [Header("Resources")]
-    public int wood;
-    public int stone;
+    public float wood;
+    public float stone;
 
     public NavMeshSurface nms;
 

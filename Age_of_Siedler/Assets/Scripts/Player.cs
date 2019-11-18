@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public LineRenderer line;
     public Vector3 target;
 
-    public GameObject mark;
+    //public GameObject mark;
+    public ParticleSystem select;
 
     [Header("cargo")]
-    public int maxCargo;
-    public int currentCargo;
+    public float maxCargo;
+    public float currentCargo;
     public float workTime;
     public int workAmount;
+
+    public Image work;
+    public GameObject canvas;
 
     [Header("Resources")]
     internal bool wood;
@@ -28,6 +34,15 @@ public class Player : MonoBehaviour
     internal bool isWorking;
     internal Resource workResource;
 
+    //public void DrawPath()
+    //{
+    //    line.SetVertexCount(agent.path.corners.Length);
+
+    //    for (int i = 0; i < agent.path.corners.Length; i++)
+    //    {
+    //        line.SetPosition(i, agent.path.corners[i]);
+    //    }
+    //}
 
     IEnumerator Work()
     {
@@ -35,9 +50,11 @@ public class Player : MonoBehaviour
         {
             while (currentCargo < maxCargo)
             {
-                yield return new WaitForSeconds(workTime);
                 currentCargo += workAmount;
+                work.fillAmount = currentCargo / maxCargo;
+                Debug.Log(currentCargo + " currentCargo");
                 workResource.resourceAmount -= workAmount;
+                yield return new WaitForSeconds(workTime);
             } 
         }
         else
