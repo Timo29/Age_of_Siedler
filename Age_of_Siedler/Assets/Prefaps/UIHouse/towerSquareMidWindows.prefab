@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8457861418846907609
+--- !u!1 &9056838966999519558
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8457861418847203577}
-  - component: {fileID: 8457861418847973593}
-  - component: {fileID: 8457861418849104409}
-  - component: {fileID: 5274370228410285115}
-  - component: {fileID: -3916963280496147663}
+  - component: {fileID: 9056838966999485798}
+  - component: {fileID: 9056838966998715718}
+  - component: {fileID: 9056838966997585798}
+  - component: {fileID: 7514477865114740626}
+  - component: {fileID: 3876562399127748324}
   m_Layer: 0
   m_Name: towerSquareMidWindows
   m_TagString: Untagged
@@ -20,35 +20,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8457861418847203577
+--- !u!4 &9056838966999485798
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8457861418846907609}
+  m_GameObject: {fileID: 9056838966999519558}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: -28.2, y: -1.125477e-15, z: -47.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8457861418847973593
+--- !u!33 &9056838966998715718
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8457861418846907609}
+  m_GameObject: {fileID: 9056838966999519558}
   m_Mesh: {fileID: 4300000, guid: 8b983394e695f1f4aaed6fefc00ad7c4, type: 3}
---- !u!23 &8457861418849104409
+--- !u!23 &9056838966997585798
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8457861418846907609}
+  m_GameObject: {fileID: 9056838966999519558}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,9 +59,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab7f7360b5b715f4c883edad68700d29, type: 2}
-  - {fileID: 2100000, guid: 8f512dd9f90fc3940a6625e492f60fe3, type: 2}
-  - {fileID: 2100000, guid: 62709c40ce462894a86a8ce587cb0a62, type: 2}
+  - {fileID: 2100000, guid: c93b7facd1b189a4794b304e4a1abe49, type: 2}
+  - {fileID: 2100000, guid: 70249fa5963c841488a1ad565ecd6bb3, type: 2}
+  - {fileID: 2100000, guid: 8e21e13e24183164cb34ff4281f1c0ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,13 +82,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &5274370228410285115
+--- !u!65 &7514477865114740626
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9056838966999519558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.299999, y: 10.1, z: 9.3}
+  m_Center: {x: 5, y: 5.05, z: 4.2999997}
+--- !u!54 &3876562399127748324
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8457861418846907609}
+  m_GameObject: {fileID: 9056838966999519558}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -98,16 +111,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &-3916963280496147663
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8457861418846907609}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 9.299999, y: 10.1, z: 9.3}
-  m_Center: {x: 5, y: 5.05, z: 4.2999997}
