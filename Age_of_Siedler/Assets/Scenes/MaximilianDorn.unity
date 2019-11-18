@@ -244,7 +244,7 @@ MonoBehaviour:
   useRandomSeed: 0
   width: 100
   height: 80
-  randomFillPercent: 30
+  randomFillPercent: 10
   recourceChance: 85
   woodStoneRatio: 90
   normalizeCount: 15

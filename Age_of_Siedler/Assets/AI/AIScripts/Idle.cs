@@ -22,9 +22,9 @@ public class Idle : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Vector3.Distance(aiController.agent.pathEndPosition, aiTransform.position) < 0.5f)
+        if (Vector3.Distance(aiController.agent.pathEndPosition, aiTransform.position) < 0.6f)
         {
-            aiController.agent.SetDestination(RandomPointInIdle(homePoint));
+            aiController.agent.SetDestination(RandomPointInIdle(homePoint, aiTransform.position));
         }
     }
 
@@ -46,11 +46,11 @@ public class Idle : StateMachineBehaviour
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
 
-    public static Vector3 RandomPointInIdle(Vector3 zone)
+    public static Vector3 RandomPointInIdle(Vector3 zone, Vector3 playerPosition)
     {
         return new Vector3(
             Random.Range(zone.x + 1f, zone.x - 1f),
-            0.5f,
+            playerPosition.y,
             Random.Range(zone.z + 1f, zone.z - 1f));
     }
 }

@@ -11,8 +11,6 @@ public class PlayerManager_v2 : MonoBehaviour
     public Resources currentResourc;
     public Vector3 currentTarget;
 
-    private int lastResident;
-
 
     void Update()
     {
@@ -27,17 +25,24 @@ public class PlayerManager_v2 : MonoBehaviour
                 {
                     if (currentResident != null)
                     {
-                        currentResident.GetComponent<Player>().mark.SetActive(false);
+                        //currentResident.GetComponent<Player>().mark.SetActive(false);
+                        currentResident.GetComponent<Player>().canvas.SetActive(false);
+                        currentResident.GetComponent<Player>().select.gameObject.SetActive(false);
                     }
+                    Debug.Log("Player select");
                     currentResident = hitInfo.transform.gameObject;
-                    currentResident.GetComponent<Player>().mark.SetActive(true);  
+                    //currentResident.GetComponent<Player>().mark.SetActive(true);
+                    currentResident.GetComponent<Player>().select.gameObject.SetActive(true);
+                    currentResident.GetComponent<Player>().canvas.SetActive(true);
                 }
             }
             else
             {
                 if (currentResident != null)
                 {
-                    currentResident.GetComponent<Player>().mark.SetActive(false);
+                    //currentResident.GetComponent<Player>().mark.SetActive(false);
+                    currentResident.GetComponent<Player>().select.gameObject.SetActive(false);
+                    currentResident.GetComponent<Player>().canvas.SetActive(false);
                     currentResident = null;
                 }
 
@@ -53,8 +58,6 @@ public class PlayerManager_v2 : MonoBehaviour
                 Player player = currentResident.GetComponent<Player>();
                 switch (hitInfo.transform.tag)
                 {
-
-
                     case "resourceWood":
                         currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
                         player.target = currentTarget;
@@ -63,7 +66,6 @@ public class PlayerManager_v2 : MonoBehaviour
                         player.wood = true;
                         currentResident.GetComponent<Animator>().SetBool("isMoving", true);
                         break;
-
                     case "resourceStone":
                         currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
                         player.target = currentTarget;
@@ -72,7 +74,6 @@ public class PlayerManager_v2 : MonoBehaviour
                         player.stone = true;
                         currentResident.GetComponent<Animator>().SetBool("isMoving", true);
                         break;
-
                     case "building":
                         currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
                         player.target = currentTarget;
@@ -91,47 +92,6 @@ public class PlayerManager_v2 : MonoBehaviour
                         currentResident.GetComponent<Animator>().SetBool("isMoving", true);
                         break;
                 }
-                //if (hitInfo.transform.tag == "resourceWood" || hitInfo.transform.tag == "resourceStone")
-                //{
-                //    Player player = currentResident.GetComponent<Player>();
-                //    //currentTarget = hitInfo.point;
-                //    currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
-                //    player.target = currentTarget;
-                //    player.workResource = hitInfo.transform.gameObject.GetComponent<Resource>();
-                //    player.isWorking = true;
-                //    switch (hitInfo.transform.tag)
-                //    {
-                //        case "resourceWood":
-                //            Debug.Log("Wood");
-                //            player.wood = true;
-                //            break;
-                //        case "resourceStone":
-                //            Debug.Log("Stone");
-                //            player.stone = true;
-                //            break;
-
-                //        default:
-                //            break;
-                //    }
-
-                //    currentResident.GetComponent<Animator>().SetBool("isMoving", true);
-                //}
-                //else if(hitInfo.transform.tag == "building")
-                //{
-
-                //}
-
-                //else
-                //{
-                //    Player player = currentResident.GetComponent<Player>();
-                //    currentTarget = hitInfo.point;
-                //    player.isWorking = false;
-                //    player.wood = false;
-                //    player.stone = false;
-                //    player.build = false;
-                //    player.target = currentTarget;
-                //    currentResident.GetComponent<Animator>().SetBool("isMoving", true);
-                //}
             }
         }
     }
