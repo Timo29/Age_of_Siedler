@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 8957982829236439569}
   - component: {fileID: 2997558505843112541}
   - component: {fileID: 4301412685738154537}
-  - component: {fileID: -7607865004524171781}
+  - component: {fileID: -7350497943443117790}
   m_Layer: 0
-  m_Name: wallCorner
-  m_TagString: Untagged
+  m_Name: wallCorner 1
+  m_TagString: house
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &-7607865004524171781
+--- !u!114 &-7350497943443117790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
