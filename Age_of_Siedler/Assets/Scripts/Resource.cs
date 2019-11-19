@@ -10,6 +10,9 @@ public class Resource : MonoBehaviour
     public delegate void BuildNavMesh();
     public static event BuildNavMesh onResourceEmpty;
 
+    public delegate void DelResource(GameObject thisGameObject, string tag);
+    public static event DelResource onResourceDel;
+
     void Update()
     {
         if (resourceAmount <= 0)
@@ -22,6 +25,7 @@ public class Resource : MonoBehaviour
     {
         if (onResourceEmpty != null)
         {
+            onResourceDel(this.gameObject, this.tag);
             onResourceEmpty(); 
         }
     }
