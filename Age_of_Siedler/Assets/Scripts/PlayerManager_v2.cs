@@ -25,24 +25,24 @@ public class PlayerManager_v2 : MonoBehaviour
                 {
                     if (currentResident != null)
                     {
-                        //currentResident.GetComponent<Player>().mark.SetActive(false);
                         currentResident.GetComponent<Player>().canvas.SetActive(false);
-                        currentResident.GetComponent<Player>().select.gameObject.SetActive(false);
+                        currentResident.GetComponent<Player>().select.Stop();
+                        currentResident.GetComponent<Player>().isSelect = false;
                     }
                     Debug.Log("Player select");
                     currentResident = hitInfo.transform.gameObject;
-                    //currentResident.GetComponent<Player>().mark.SetActive(true);
-                    currentResident.GetComponent<Player>().select.gameObject.SetActive(true);
+                    currentResident.GetComponent<Player>().select.Play();
                     currentResident.GetComponent<Player>().canvas.SetActive(true);
+                    currentResident.GetComponent<Player>().isSelect = true;
                 }
             }
             else
             {
                 if (currentResident != null)
                 {
-                    //currentResident.GetComponent<Player>().mark.SetActive(false);
-                    currentResident.GetComponent<Player>().select.gameObject.SetActive(false);
+                    currentResident.GetComponent<Player>().select.Stop();
                     currentResident.GetComponent<Player>().canvas.SetActive(false);
+                    currentResident.GetComponent<Player>().isSelect = false;
                     currentResident = null;
                 }
 

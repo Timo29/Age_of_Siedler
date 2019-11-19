@@ -11,8 +11,13 @@ public class GameManager : MonoBehaviour
 
     public NavMeshSurface nms;
 
-    //void Start()
-    //{
-    //    nms.BuildNavMesh();
-    //}
+    void Start()
+    {
+        Resource.onResourceEmpty += ReBuildNavMesh;
+    }
+
+    private void ReBuildNavMesh()
+    {
+        nms.BuildNavMesh();
+    }
 }
