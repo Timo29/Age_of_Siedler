@@ -9,19 +9,21 @@ public class CollisionScript : MonoBehaviour
 
 
 
-    private void Start()
+    private void OnCollisionStay(Collision collision)
     {
-        spawnHouse = GameObject.FindGameObjectWithTag("UIManager").GetComponent<SpawnHouseScript>();
-
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("house"))
+        if (collision.collider.tag == "house")
         {
-            spawnHouse.spawn = false;
-            print("Working"); 
+         GameObject.FindGameObjectWithTag("UIManager").GetComponent<SpawnHouseScript>().spawn = false;
+            print("Collision");
+
+        }
+
+        else
+        {
+            GameObject.FindGameObjectWithTag("UIManager").GetComponent<SpawnHouseScript>().spawn = true;
+
         }
     }
+
 
 }
