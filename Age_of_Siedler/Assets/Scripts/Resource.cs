@@ -7,11 +7,22 @@ public class Resource : MonoBehaviour
     [SerializeField]
     internal int resourceAmount = 100;
 
+    public delegate void BuildNavMesh();
+    public static event BuildNavMesh onResourceEmpty;
+
     void Update()
     {
         if (resourceAmount <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (onResourceEmpty != null)
+        {
+            onResourceEmpty(); 
         }
     }
 

@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public LineRenderer line;
-    public Vector3 target;
+    public LineRenderer pathLine;
+    internal Vector3 target;
 
-    //public GameObject mark;
     public ParticleSystem select;
+    public bool isSelect = false;
 
     [Header("cargo")]
     public float maxCargo;
@@ -34,15 +34,23 @@ public class Player : MonoBehaviour
     internal bool isWorking;
     internal Resource workResource;
 
-    //public void DrawPath()
-    //{
-    //    line.SetVertexCount(agent.path.corners.Length);
+    void Update()
+    {
+        if (isSelect)
+        {
+            DrawPath();
+        }
+        else
+            pathLine.enabled = false;
+    }
 
-    //    for (int i = 0; i < agent.path.corners.Length; i++)
-    //    {
-    //        line.SetPosition(i, agent.path.corners[i]);
-    //    }
-    //}
+    public void DrawPath()
+    {
+        Debug.Log("DrawLine");
+        pathLine.enabled = true;
+        pathLine.positionCount = agent.path.corners.Length;
+        pathLine.SetPositions(agent.path.corners);
+    }
 
     IEnumerator Work()
     {
