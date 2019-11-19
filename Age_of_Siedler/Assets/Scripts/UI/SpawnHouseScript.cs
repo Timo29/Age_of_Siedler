@@ -41,9 +41,7 @@ public class SpawnHouseScript : MonoBehaviour
         }
 
         lagerBool = true;
-
-
-
+        spawn = true;
 
         ApplyChange(ChanceDetails.house_Model, houseIndex);
 
@@ -56,13 +54,12 @@ public class SpawnHouseScript : MonoBehaviour
             houseIndex = 0;
         }
         dorfzBool = true;
+        spawn = true;
+
+
         ApplyChange(ChanceDetails.house_Model, houseIndex);
 
     }
-
-
-
-
     void Update()
     {
 
@@ -72,8 +69,6 @@ public class SpawnHouseScript : MonoBehaviour
             lagerbase.SetActive(true);
             dorf.SetActive(false);
             dorfzBool = false;
-            spawn = true;
-
         }
 
         else if (dorfzBool == true)
@@ -81,8 +76,6 @@ public class SpawnHouseScript : MonoBehaviour
             dorf.SetActive(true);
             lagerbase.SetActive(false);
             lagerBool = false;
-            spawn = true;
-
         }
 
 
@@ -92,8 +85,6 @@ public class SpawnHouseScript : MonoBehaviour
 
         Physics.Raycast(ray, out hit);
         {
-
-
             if (hit.transform.gameObject.tag == "floor")
             {
 
@@ -105,35 +96,20 @@ public class SpawnHouseScript : MonoBehaviour
             {
                 if (spawn == true)
                 {
-                    Instantiate(dorfZentrumHouse, hit.point, Quaternion.identity );
+                    Instantiate(dorfZentrumHouse, hit.point, Quaternion.identity * Quaternion.Euler(0, 90, 0));
                     spawn = false;
+                }
+                else if (spawn == false)
+                {
+                    print("NotWorking");
                 }
                 lagerbase.SetActive(false);
                 dorf.SetActive(false);
                 lagerBool = false;
                 dorfzBool = false;
-
-
-
-
             }
-
-
-
-
         }
-
-
     }
-
-
-
-
-
-
-
-
-
 
     void ApplyChange(ChanceDetails detail, int id)
     {

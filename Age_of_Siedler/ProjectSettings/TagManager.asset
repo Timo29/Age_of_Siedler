@@ -13,6 +13,7 @@ TagManager:
   - building
   - house
   - floor
+  - UIManager
   layers:
   - Default
   - TransparentFX
