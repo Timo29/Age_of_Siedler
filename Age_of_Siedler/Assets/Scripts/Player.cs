@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,9 +9,10 @@ public class Player : MonoBehaviour
 {
     public NavMeshAgent agent;
     public LineRenderer pathLine;
-    internal Vector3 target;
+    public Vector3 target;
 
     public ParticleSystem select;
+    public ResourceManager rm;
     public bool isSelect = false;
 
     [Header("cargo")]
@@ -23,8 +25,9 @@ public class Player : MonoBehaviour
     public GameObject canvas;
 
     [Header("Resources")]
-    internal bool wood;
-    internal bool stone;
+    public float resourceSearchRange;
+    public bool wood;
+    public bool stone;
 
     [Header("Build")]
     internal Building building;
@@ -32,7 +35,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     internal bool isWorking;
-    internal Resource workResource;
+    internal bool newResource = false;
+    public Resource workResource;
 
     void Update()
     {
@@ -44,9 +48,13 @@ public class Player : MonoBehaviour
             pathLine.enabled = false;
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, resourceSearchRange);
+    }
+
     public void DrawPath()
     {
-        Debug.Log("DrawLine");
         pathLine.enabled = true;
         pathLine.positionCount = agent.path.corners.Length;
         pathLine.SetPositions(agent.path.corners);
@@ -60,22 +68,56 @@ public class Player : MonoBehaviour
             {
                 currentCargo += workAmount;
                 work.fillAmount = currentCargo / maxCargo;
-                Debug.Log(currentCargo + " currentCargo");
                 workResource.resourceAmount -= workAmount;
                 yield return new WaitForSeconds(workTime);
-            } 
+            }
         }
         else
         {
-            target = transform.position;
+            if (wood)
+                NextWoodResource();
+            else if (stone)
+                NextStoneResource();
+            yield return new WaitForSeconds(0.5f);
+            newResource = true;
         }
 
         yield return null;
     }
 
+    private void NextStoneResource()
+    {
+        for (int i = 0; i < rm.stoneCatalog.Count; i++)
+        {
+            if (Vector3.Distance(rm.stoneCatalog[i].transform.position, target) < resourceSearchRange)
+            {
+                workResource = rm.stoneCatalog[i].GetComponent<Resource>();
+                target = rm.stoneCatalog[i].transform.position;
+                stone = true;
+                isWorking = true;
+                return;
+            }
+        }
+    }
+
+    private void NextWoodResource()
+    {
+        for (int i = 0; i < rm.woodCatalog.Count; i++)
+        {
+            if (Vector3.Distance(rm.woodCatalog[i].transform.position, target) < resourceSearchRange)
+            {
+                workResource = rm.woodCatalog[i].GetComponent<Resource>();
+                target = rm.woodCatalog[i].transform.position;
+                wood = true;
+                isWorking = true;
+                return;
+            }
+        }
+    }
+
     IEnumerator Build()
     {
-        if(building != null)
+        if (building != null)
             while (building.buildTime > 0)
             {
                 yield return new WaitForSeconds(1f);
@@ -85,12 +127,4 @@ public class Player : MonoBehaviour
 
         yield return null;
     }
-
-    //public static Vector3 RandomPointInHome(Vector3 zone)
-    //{
-    //    return new Vector3(
-    //        Random.Range(zone.x + 2.5f, zone.x - 2.5f),
-    //        0.5f,
-    //        Random.Range(zone.z + 2.5f, zone.z - 2.5f));
-    //}
 }

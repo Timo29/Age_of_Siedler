@@ -20,14 +20,17 @@ public class movingState : StateMachineBehaviour
     {
         aiController.agent.SetDestination(aiController.target);
 
-        if (Vector3.Distance(aiTransform.position, aiController.target) < 1f && aiController.isWorking)
+        if (Vector3.Distance(aiTransform.position, aiController.target) < 1.7f && aiController.isWorking)
         {
             if (aiController.build)
             {
                 animator.SetBool("isBuilding", true);
             }
             else
+            {
                 animator.SetBool("isMining", true);
+
+            }
         }
         else if(Vector3.Distance(aiTransform.position, aiController.target) < 1f)
         {

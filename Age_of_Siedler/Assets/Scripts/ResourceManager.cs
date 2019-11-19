@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public Dictionary<int, GameObject> stoneCatalog;
-    public Dictionary<int, GameObject> woodCatalog;
+    public List<GameObject> stoneCatalog;
+    public List<GameObject> woodCatalog;
 
     void Start()
     {
         Resource.onResourceDel += DeleteResourceFromDictionary;
-        stoneCatalog = new Dictionary<int, GameObject>();
-        woodCatalog = new Dictionary<int, GameObject>();
+        stoneCatalog = new List<GameObject>();
+        woodCatalog = new List<GameObject>();
         AddAllResources();
     }
 
@@ -23,17 +23,28 @@ public class ResourceManager : MonoBehaviour
         switch (tag)
         {
             case "resourceStone":
-                stoneCatalog.Remove(tempHash);
+                for (int i = 0; i < stoneCatalog.Count; i++)
+                {
+                    if (stoneCatalog[i] == deleteGameObject)
+                    {
+                        stoneCatalog.RemoveAt(i);
+                        return;
+                    }
+                }
                 break;
             case "resourceWood":
-                Debug.Log(woodCatalog.Count + " vor der löschung");
-                woodCatalog.Remove(tempHash);
-                Debug.Log(woodCatalog.Count + " nach der löschung");
+                for (int i = 0; i < woodCatalog.Count; i++)
+                {
+                    if (woodCatalog[i] == deleteGameObject)
+                    {
+                        woodCatalog.RemoveAt(i);
+                        return;
+                    }
+                }
                 break;
             default:
                 break;
         }
-        stoneCatalog.Remove(tempHash);
     }
 
     void AddAllResources()
@@ -46,12 +57,12 @@ public class ResourceManager : MonoBehaviour
 
         for (int i = 0; i < allResourcesStone.Length; i++)
         {
-            stoneCatalog.Add(allResourcesStone[i].GetHashCode(), allResourcesStone[i]);
+            stoneCatalog.Add(allResourcesStone[i]);
         }
 
         for (int i = 0; i < allResourcesWood.Length; i++)
         {
-            woodCatalog.Add(allResourcesWood[i].GetHashCode(), allResourcesWood[i]);
+            woodCatalog.Add(allResourcesWood[i]);
         }
     }
 }

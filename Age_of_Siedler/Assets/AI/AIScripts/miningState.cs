@@ -13,7 +13,7 @@ public class miningState : StateMachineBehaviour
 
         if (aiController != null)
         {
-            aiController.StartCoroutine("Work");
+                aiController.StartCoroutine("Work");
         }
     }
 
@@ -31,7 +31,15 @@ public class miningState : StateMachineBehaviour
         }
         else if (aiController.workResource == null && aiController.currentCargo == 0)
         {
+            aiController.isWorking = false;
+            aiController.wood = false;
+            aiController.stone = false;
             animator.SetBool("isMining", false);
+        }
+        else if (aiController.newResource)
+        {
+            aiController.newResource = false;
+            animator.SetBool("isMoving", true);
         }
     }
 
