@@ -117,12 +117,16 @@ public class Player : MonoBehaviour
 
     IEnumerator Build()
     {
+        float tempBuildingTime = building.buildTime;
         if (building != null)
+
             while (building.buildTime > 0)
             {
                 yield return new WaitForSeconds(1f);
+                work.fillAmount = building.buildTime / tempBuildingTime;
                 building.buildTime -= 1f;
             }
+        work.fillAmount = 0;
 
 
         yield return null;
