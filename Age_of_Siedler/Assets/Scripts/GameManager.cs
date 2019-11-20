@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
         Resource.onResourceEmpty += ReBuildNavMesh;
         warehouseDeliver.onStoneAdd += AddStone;
         warehouseDeliver.onWoodAdd += AddWood;
+        Building.onBuilding += ReBuildNavMesh;
     }
 
     private void AddWood(float woodAmount)
