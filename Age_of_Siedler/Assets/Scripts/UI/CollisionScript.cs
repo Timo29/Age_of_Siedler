@@ -7,23 +7,49 @@ public class CollisionScript : MonoBehaviour
 
     private SpawnHouseScript spawnHouse;
 
+    public Material[] matrials;
+    Renderer rend;
 
 
-    private void OnCollisionStay(Collision collision)
+    private void Start()
+    {
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "house")
         {
-         GameObject.FindGameObjectWithTag("UIManager").GetComponent<SpawnHouseScript>().spawn = false;
+            GameObject.FindGameObjectWithTag("UIManager").GetComponent<SpawnHouseScript>().spawn = false;
             print("Collision");
+
+
 
         }
 
-        else
+
+
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.tag == "house")
         {
+
             GameObject.FindGameObjectWithTag("UIManager").GetComponent<SpawnHouseScript>().spawn = true;
+
 
         }
     }
+
+
+
+
+
+
+
+
+
 
 
 }

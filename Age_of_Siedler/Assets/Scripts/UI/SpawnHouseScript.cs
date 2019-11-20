@@ -1,27 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnHouseScript : MonoBehaviour
 {
     enum ChanceDetails
     {
         house_Model
-
-
-
     }
 
-
-
+    public Text text;
+    public LayerMask groundLayer;
     public Camera myCamera;
 
     public bool lagerBool = false;
     public bool dorfzBool = false;
+    public bool spawnbuiling;
     public bool spawn = false;
+    public bool spawnHouse = false;
 
     public GameObject dorf;
     public GameObject lagerbase;
+
+    int villagerMax;
+    int currentVillager;
 
 
     [SerializeField]
@@ -63,6 +66,10 @@ public class SpawnHouseScript : MonoBehaviour
     void Update()
     {
 
+        text.text = currentVillager.ToString() + " / " + villagerMax.ToString();
+
+
+
 
         if (lagerBool == true)
         {
@@ -83,21 +90,24 @@ public class SpawnHouseScript : MonoBehaviour
         Ray ray = myCamera.ScreenPointToRay(Input.mousePosition);
 
 
-        Physics.Raycast(ray, out hit);
+        if (Physics.Raycast(ray, out hit, 50, groundLayer))
         {
-            if (hit.transform.gameObject.tag == "floor")
-            {
+   
 
                 dorf.transform.position = hit.point;
                 lagerbase.transform.position = hit.point;
-            }
+                spawnHouse = true;
+            
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (spawn == true)
+                if (spawn == true && spawnHouse == true)
                 {
                     Instantiate(dorfZentrumHouse, hit.point, Quaternion.identity * Quaternion.Euler(0, 90, 0));
+                    spawnbuiling = true;
                     spawn = false;
+                    lagerBool = false;
+                    dorfzBool = false;
                 }
                 else if (spawn == false)
                 {
@@ -105,8 +115,18 @@ public class SpawnHouseScript : MonoBehaviour
                 }
                 lagerbase.SetActive(false);
                 dorf.SetActive(false);
-                lagerBool = false;
-                dorfzBool = false;
+
+            }
+        }
+
+
+        if (spawnbuiling == true)
+        {
+            if (houseIndex == 0)
+            {
+                villagerMax += 15;
+                spawnbuiling = false;
+
             }
         }
     }
