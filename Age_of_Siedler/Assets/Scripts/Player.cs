@@ -9,11 +9,11 @@ public class Player : MonoBehaviour
 {
     public NavMeshAgent agent;
     public LineRenderer pathLine;
-    public Vector3 target;
+    internal Vector3 target;
 
     public ParticleSystem select;
     public ResourceManager rm;
-    public bool isSelect = false;
+    internal bool isSelect = false;
 
     [Header("cargo")]
     public float maxCargo;
@@ -26,14 +26,13 @@ public class Player : MonoBehaviour
 
     [Header("Resources")]
     public float resourceSearchRange;
-    public bool wood;
-    public bool stone;
+    internal bool wood;
+    internal bool stone;
 
     [Header("Build")]
     internal Building building;
     internal bool build;
 
-    [SerializeField]
     internal bool isWorking;
     internal bool newResource = false;
     public Resource workResource;
@@ -104,6 +103,7 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < rm.woodCatalog.Count; i++)
         {
+            Debug.Log(i);
             if (Vector3.Distance(rm.woodCatalog[i].transform.position, target) < resourceSearchRange)
             {
                 workResource = rm.woodCatalog[i].GetComponent<Resource>();

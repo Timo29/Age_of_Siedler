@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class warehouseDeliver : MonoBehaviour
 {
-    GameManager gm;
-    void Start()
-    {
-        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-    }
+    public delegate void StoneDelivery(float stoneAmount);
+    public static event StoneDelivery onStoneAdd;
+
+    public delegate void WoodDelivery(float woodAmount);
+    public static event WoodDelivery onWoodAdd;
 
     void OnTriggerEnter(Collider other)
     {
@@ -19,14 +19,14 @@ public class warehouseDeliver : MonoBehaviour
                 Player player = other.gameObject.GetComponent<Player>();
                 if (player.stone)
                 {
-                    gm.stone += player.currentCargo;
+                    onStoneAdd(player.currentCargo);
                     player.currentCargo = 0;
                     player.work.fillAmount = 0;
                     other.gameObject.GetComponent<Animator>().SetBool("isMoving", true);
                 }
                 else if (player.wood)
                 {
-                    gm.wood += player.currentCargo;
+                    onWoodAdd(player.currentCargo);
                     player.currentCargo = 0;
                     player.work.fillAmount = 0;
                     other.gameObject.GetComponent<Animator>().SetBool("isMoving", true);

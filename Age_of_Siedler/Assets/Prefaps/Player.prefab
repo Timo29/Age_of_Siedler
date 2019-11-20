@@ -207,14 +207,15 @@ MonoBehaviour:
   agent: {fileID: 7585828309725135898}
   pathLine: {fileID: 8323522177243929609}
   select: {fileID: 6760319877552831130}
-  isSelect: 0
+  rm: {fileID: 2895749137824005318, guid: fe1b636e823adeb42b17491de8debd08, type: 3}
   maxCargo: 50
   currentCargo: 0
   workTime: 0.5
   workAmount: 10
   work: {fileID: 576861637578094200}
   canvas: {fileID: 4977492471341714606}
-  isWorking: 0
+  resourceSearchRange: 10
+  workResource: {fileID: 0}
 --- !u!195 &7585828309725135898
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -59,3 +59,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85907e2e9cf9059419b3cb5abaa0c624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoneCatalog: []
+  woodCatalog: []
