@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5769195687808602428}
   - component: {fileID: 5769195687808602429}
   - component: {fileID: 5769195687808602418}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GrasPrefabMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

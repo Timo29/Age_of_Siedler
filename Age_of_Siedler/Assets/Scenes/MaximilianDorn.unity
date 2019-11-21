@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124760948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 8.1, z: -29.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -236,17 +236,21 @@ MonoBehaviour:
     type: 3}
   waterBlock: {fileID: 618012787374461125, guid: 9ba9f4d1c0521a94c80673f1602614e5,
     type: 3}
-  stoneBlock: {fileID: 8092868375623944246, guid: 803d70b8066697e4789346cdd0734ec1,
-    type: 3}
-  woodBlock: {fileID: 1491036976168963291, guid: a7839dad75f69f943a5b3a2c3c41e684,
-    type: 3}
+  stoneBlock:
+  - {fileID: 4682562206610085988, guid: ce5fd73f9b93e534e812e8c2a5a6c119, type: 3}
+  - {fileID: 3102966675361131048, guid: 9ca9d825334d21c46980192e65a44207, type: 3}
+  - {fileID: 8164078025004004712, guid: 7038c0ae750bccd4fb713c75d0afec7c, type: 3}
+  woodBlock:
+  - {fileID: 6843154510497062196, guid: cba6cf554766828458880956c80bf379, type: 3}
+  - {fileID: 8663541515179422545, guid: 24aa8295a0d78684c90e72f48b9ff154, type: 3}
+  - {fileID: 8640614835460695060, guid: 132bf6e7d20eb9a42a6c10c14cb6210b, type: 3}
   seed: 999
-  useRandomSeed: 0
+  useRandomSeed: 1
   width: 100
   height: 80
   randomFillPercent: 25
   recourceChance: 90
-  woodStoneRatio: 92
+  woodStoneRatio: 94
   normalizeCount: 15
 --- !u!4 &341094637
 Transform:
@@ -306,7 +310,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
 --- !u!4 &1187938330
