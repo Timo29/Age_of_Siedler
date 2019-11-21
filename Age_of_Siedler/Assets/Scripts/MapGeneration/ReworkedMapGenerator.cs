@@ -35,6 +35,8 @@ public class ReworkedMapGenerator : MonoBehaviour
 
     public int normalizeCount = 4;
 
+    private bool activateOnce = false;
+
 
     public bool IsGround(int x, int y)
     {
@@ -45,6 +47,11 @@ public class ReworkedMapGenerator : MonoBehaviour
     {
         GenerateMap();
         GenerateRecources();
+    }
+
+    private void Update()
+    {
+        random();
     }
 
     void GenerateMap()
@@ -69,7 +76,7 @@ public class ReworkedMapGenerator : MonoBehaviour
             seed = Time.time.ToString();
         }
 
-        System.Random random = new System.Random(seed.GetHashCode());
+        //System.Random random = new System.Random(seed.GetHashCode());
 
         map = new bool[width, height];
 
@@ -83,8 +90,9 @@ public class ReworkedMapGenerator : MonoBehaviour
                 }
                 else
                 {
-                    var chance = random.Next(0, 100);
-                    if(chance > randomFillPercent)
+                    //var chance = random.Next(0, 100);
+                    //var chance = UnityEngine.Random.Range(0, 100);
+                    if (UnityEngine.Random.Range(0, 100) > randomFillPercent)
                     {
                         map[x, y] = GROUND;
                     }
@@ -196,7 +204,7 @@ public class ReworkedMapGenerator : MonoBehaviour
             seed = Time.time.ToString();
         }
 
-        System.Random random = new System.Random(seed.GetHashCode());
+        //System.Random random = new System.Random(seed.GetHashCode());
 
         for (int x = 0; x < width; x++)
         {
@@ -204,24 +212,25 @@ public class ReworkedMapGenerator : MonoBehaviour
             {
                 if (map[x,y] == GROUND)
                 {
-                    var chance = random.Next(0, 100);
-                    if(chance> recourceChance)
+                    //var chance = random.Next(0, 100);
+                    //var chance = UnityEngine.Random.Range(0, 100);
+                    if (UnityEngine.Random.Range(0, 100) > recourceChance)
                     {
-                        if(chance > woodStoneRatio)
+                        if(UnityEngine.Random.Range(0, 100) > woodStoneRatio)
                         {
                             Debug.Log("SetStone");
                             recourceMap[x, y] = 1;
                         }
-                        else if (chance < woodStoneRatio)
+                        else //if (chance < woodStoneRatio)
                         {
                             Debug.Log("SetWood");
                             recourceMap[x, y] = 2;
                         }
                     }
-                    else
-                    {
-                        recourceMap[x, y] = 0;
-                    }
+                    //else
+                    //{
+                    //    recourceMap[x, y] = 0;
+                    //}
                 }
             }
         }
@@ -254,5 +263,48 @@ public class ReworkedMapGenerator : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void random()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    GameObject block2;
+                    if (map[x,y] == GROUND && activateOnce == false)
+                    {
+                        //System.Random random = new System.Random(seed.GetHashCode());
+
+                        if(UnityEngine.Random.Range(0, 100) < woodStoneRatio)
+                        {
+                            map[x, y] = WALL;
+                            recourceMap[x, y] = 1;
+                            Debug.Log("1");
+                            block2 = Instantiate(stoneBlock[UnityEngine.Random.Range(0, stoneBlock.Length - 1)], transform, false);
+                            block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
+                            block2.transform.localPosition = new Vector3(x + 0.5f, 0, y + 0.5f);
+                            activateOnce = true;
+                            Debug.Log(block2.transform.position);
+                        }
+                        else/* if(chance > woodStoneRatio)*/
+                        {
+                            map[x, y] = WALL;
+                            recourceMap[x, y] = 2;
+                            Debug.Log("2");
+                            block2 = Instantiate(woodBlock[UnityEngine.Random.Range(0, woodBlock.Length - 1)], transform, false);
+                            block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
+                            block2.transform.localPosition = new Vector3(x + 0.5f, 0, y + 0.5f);
+                            activateOnce = true;
+                            Debug.Log(block2.transform.position);
+                        }
+                    }
+                }
+
+            }
+        }
+        activateOnce = false;
     }
 }
