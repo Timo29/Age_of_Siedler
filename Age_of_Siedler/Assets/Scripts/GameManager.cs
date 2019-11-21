@@ -20,10 +20,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Resource.onResourceEmpty += ReBuildNavMesh;
         warehouseDeliver.onStoneAdd += AddStone;
         warehouseDeliver.onWoodAdd += AddWood;
-        Building.onBuilding += ReBuildNavMesh;
     }
 
     private void AddWood(float woodAmount)
@@ -38,8 +36,8 @@ public class GameManager : MonoBehaviour
         warehouseStone(stone);
     }
 
-    private void ReBuildNavMesh()
-    {
-        nms.BuildNavMesh();
-    }
+    //private void ReBuildNavMesh()
+    //{
+    //    nms.BuildNavMesh();
+    //}
 }

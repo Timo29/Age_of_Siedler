@@ -13,6 +13,7 @@ public class movingState : StateMachineBehaviour
         aiController = animator.gameObject.GetComponent<Player>();
         aiTransform = animator.gameObject.GetComponent<Transform>();
         aiController.agent.isStopped = false;
+        aiController.isMoving = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -20,7 +21,7 @@ public class movingState : StateMachineBehaviour
     {
         aiController.agent.SetDestination(aiController.target);
 
-        if (Vector3.Distance(aiTransform.position, aiController.target) < 1.7f && aiController.isWorking)
+        if (Vector3.Distance(aiTransform.position, aiController.target) < 1.8f && aiController.isWorking)
         {
             if (aiController.build)
             {
@@ -41,6 +42,7 @@ public class movingState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateinfo, int layerindex)
     {
+        aiController.isMoving = false;
         animator.SetBool("isMoving", false);
     }
 

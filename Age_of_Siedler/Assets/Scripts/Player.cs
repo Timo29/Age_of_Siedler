@@ -34,19 +34,22 @@ public class Player : MonoBehaviour
     internal bool build;
 
     internal bool isWorking;
+    internal bool isMoving;
     internal bool newResource = false;
     public Resource workResource;
+    private bool pathDraw;
 
     void Update()
     {
-        if (isSelect)
+        if (isSelect && isMoving)
         {
             DrawPath();
         }
         else
+        {
             pathLine.enabled = false;
+        }
     }
-
     void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, resourceSearchRange);
