@@ -10,6 +10,7 @@ public class PlayerManager_v2 : MonoBehaviour
     internal int currentResidentHash;
     public Resources currentResourc;
     public Vector3 currentTarget;
+    public ParticleSystem hitPoint;
 
 
     void Update()
@@ -31,8 +32,8 @@ public class PlayerManager_v2 : MonoBehaviour
                     }
                     Debug.Log("Player select");
                     currentResident = hitInfo.transform.gameObject;
-                    currentResident.GetComponent<Player>().select.Play();
                     currentResident.GetComponent<Player>().canvas.SetActive(true);
+                    currentResident.GetComponent<Player>().select.Play();
                     currentResident.GetComponent<Player>().isSelect = true;
                 }
             }
@@ -40,8 +41,8 @@ public class PlayerManager_v2 : MonoBehaviour
             {
                 if (currentResident != null)
                 {
-                    currentResident.GetComponent<Player>().select.Stop();
                     currentResident.GetComponent<Player>().canvas.SetActive(false);
+                    currentResident.GetComponent<Player>().select.Stop();
                     currentResident.GetComponent<Player>().isSelect = false;
                     currentResident = null;
                 }
@@ -65,6 +66,7 @@ public class PlayerManager_v2 : MonoBehaviour
                         player.isWorking = true;
                         player.wood = true;
                         currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        hitPoint.Play();
                         break;
                     case "resourceStone":
                         currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
@@ -73,6 +75,7 @@ public class PlayerManager_v2 : MonoBehaviour
                         player.isWorking = true;
                         player.stone = true;
                         currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        hitPoint.Play();
                         break;
                     case "building":
                         currentTarget = RandomPointInResource(hitInfo.transform.gameObject.transform.position);
@@ -81,6 +84,7 @@ public class PlayerManager_v2 : MonoBehaviour
                         player.isWorking = true;
                         player.build = true;
                         currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        hitPoint.Play();
                         break;
                     default:
                         currentTarget = hitInfo.point;
@@ -90,6 +94,8 @@ public class PlayerManager_v2 : MonoBehaviour
                         player.build = false;
                         player.target = currentTarget;
                         currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        hitPoint.gameObject.transform.position = hitInfo.point;
+                        hitPoint.Play();
                         break;
                 }
             }

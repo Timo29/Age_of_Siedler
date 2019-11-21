@@ -7,9 +7,6 @@ public class Resource : MonoBehaviour
     [SerializeField]
     internal int resourceAmount = 100;
 
-    public delegate void BuildNavMesh();
-    public static event BuildNavMesh onResourceEmpty;
-
     public delegate void DelResource(GameObject thisGameObject, string tag);
     public static event DelResource onResourceDel;
 
@@ -23,10 +20,9 @@ public class Resource : MonoBehaviour
 
     void OnDestroy()
     {
-        if (onResourceEmpty != null)
+        if (onResourceDel != null)
         {
             onResourceDel(this.gameObject, this.tag);
-            onResourceEmpty(); 
         }
     }
 

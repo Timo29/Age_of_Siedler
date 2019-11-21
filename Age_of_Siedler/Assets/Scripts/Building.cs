@@ -11,9 +11,6 @@ public class Building : MonoBehaviour
     public GameObject house;
     public GameObject houseInBuild;
 
-    public delegate void Build();
-    public static event Build onBuilding;
-
     void Update()
     {
         if (buildTime <= 0f)
@@ -21,8 +18,6 @@ public class Building : MonoBehaviour
             Debug.Log("Fertig");
             houseInBuild.gameObject.SetActive(false);
             house.gameObject.SetActive(true);
-            onBuilding();
-
         }
     }
 }
