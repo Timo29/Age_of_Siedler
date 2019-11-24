@@ -66,6 +66,7 @@ public class PlayerManager_v2 : MonoBehaviour
                         player.isWorking = true;
                         player.wood = true;
                         currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        hitPoint.gameObject.transform.position = hitInfo.point;
                         hitPoint.Play();
                         break;
                     case "resourceStone":
@@ -75,6 +76,7 @@ public class PlayerManager_v2 : MonoBehaviour
                         player.isWorking = true;
                         player.stone = true;
                         currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        hitPoint.gameObject.transform.position = hitInfo.point;
                         hitPoint.Play();
                         break;
                     case "building":
@@ -84,6 +86,7 @@ public class PlayerManager_v2 : MonoBehaviour
                         player.isWorking = true;
                         player.build = true;
                         currentResident.GetComponent<Animator>().SetBool("isMoving", true);
+                        hitPoint.gameObject.transform.position = hitInfo.point;
                         hitPoint.Play();
                         break;
                     default:

@@ -22,6 +22,20 @@ public class GameManager : MonoBehaviour
     {
         warehouseDeliver.onStoneAdd += AddStone;
         warehouseDeliver.onWoodAdd += AddWood;
+        SpawnObjects.onWoodDec += DecWood;
+        SpawnObjects.onStoneDec += DecStone;
+    }
+
+    private void DecStone(int stoneAmount)
+    {
+        stone -= stoneAmount;
+        //warehouseWood(stone);
+    }
+
+    private void DecWood(int woodAmount)
+    {
+        wood -= woodAmount;
+        //warehouseWood(wood);
     }
 
     private void AddWood(float woodAmount)
