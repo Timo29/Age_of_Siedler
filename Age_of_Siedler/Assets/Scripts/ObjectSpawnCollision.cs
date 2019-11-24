@@ -14,11 +14,11 @@ public class ObjectSpawnCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger");
-        spawnObjects.spawnBlocked = true;
+        spawnObjects.spawnBlockCount++;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        spawnObjects.spawnBlocked = false;
+        spawnObjects.spawnBlockCount--;
     }
 }
