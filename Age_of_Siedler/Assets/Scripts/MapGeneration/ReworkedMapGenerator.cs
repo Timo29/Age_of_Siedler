@@ -6,8 +6,8 @@ using UnityEngine;
 public class ReworkedMapGenerator : MonoBehaviour
 {
     [Header("Block Prefabs")]
-    public GameObject grasBlock = null;
-    public GameObject waterBlock = null;
+    public GameObject groundBlock;
+    //public GameObject waterBlock = null;
     public GameObject[] stoneBlock = null;
     public GameObject[] woodBlock = null;
 
@@ -45,7 +45,8 @@ public class ReworkedMapGenerator : MonoBehaviour
     public int extendedWater = 100;
 
     private bool activateOnce = false;
-
+    public Material grasMat;
+    public Material waterMat;
 
     public bool IsGround(int x, int y)
     {
@@ -58,13 +59,18 @@ public class ReworkedMapGenerator : MonoBehaviour
         width = width + extendedWater;
         height = height + extendedWater;
 
-        GenerateMap();
-        GenerateRecources();
+        //GenerateMap();
+        //GenerateRecources();
     }
 
     private void Update()
     {
-        random();
+        //random();
+        if (Input.GetButtonDown("Jump"))
+        {
+            GenerateMap();
+            GenerateRecources();
+        }
     }
 
     void GenerateMap()
@@ -170,12 +176,15 @@ public class ReworkedMapGenerator : MonoBehaviour
                 GameObject block;
                 if (state)
                 {
-                    block = Instantiate(grasBlock, transform, false);
+                    block = Instantiate(groundBlock, transform, false);
+                    block.GetComponent<Renderer>().sharedMaterial = grasMat;
                     block.transform.localPosition = new Vector3(x, 0, y);
                 }
                 else
                 {
-                    block = Instantiate(waterBlock, transform, false);
+                    block = Instantiate(groundBlock, transform, false);
+                    block.GetComponent<Renderer>().sharedMaterial = waterMat;
+                    block.layer = 0;
                     block.transform.localPosition = new Vector3(x, 0, y);
                 }
                 gameMap[x, y] = block.transform;
@@ -303,14 +312,14 @@ public class ReworkedMapGenerator : MonoBehaviour
                     //May delete 0.5f afterwards
                     Debug.Log("SetStone");
                     block2 = Instantiate(stoneBlock[UnityEngine.Random.Range(0, stoneBlock.Length - 1)], transform, false);
-                    block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
+                    //block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
                     block2.transform.localPosition = new Vector3(x+0.5f, 0, y+0.5f);
                 }
                 else if(recourceMap[x,y] == 2)
                 {
                     Debug.Log("SetWood");
                     block2 = Instantiate(woodBlock[UnityEngine.Random.Range(0, woodBlock.Length - 1)], transform, false);
-                    block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
+                    //block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
                     block2.transform.localPosition = new Vector3(x+0.5f, 0, y+0.5f);
                 }
             }

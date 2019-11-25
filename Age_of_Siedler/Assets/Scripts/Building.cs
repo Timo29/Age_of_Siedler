@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    public int stoneAmount;
-    public int woodAmount;
     public float buildTime;
 
     public GameObject house;

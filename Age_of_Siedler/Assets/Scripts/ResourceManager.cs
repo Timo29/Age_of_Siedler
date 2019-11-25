@@ -16,6 +16,14 @@ public class ResourceManager : MonoBehaviour
         AddAllResources();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            AddAllResources();
+        }
+    }
+
     private void DeleteResourceFromDictionary(GameObject deleteGameObject, string tag)
     {
         int tempHash;

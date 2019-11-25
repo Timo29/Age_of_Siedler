@@ -87,6 +87,7 @@ public class SpawnObjects : MonoBehaviour
     {
         woodCostMain = woodCost;
         stoneCostMain = stoneCost;
+        Debug.Log("Spawn House");
         house.transform.GetChild(0).gameObject.SetActive(false);
         house.transform.GetChild(1).gameObject.SetActive(true);
         house.SetActive(true);

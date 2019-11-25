@@ -26,6 +26,14 @@ public class GameManager : MonoBehaviour
         SpawnObjects.onStoneDec += DecStone;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            ReBuildNavMesh();
+        }
+    }
+
     private void DecStone(int stoneAmount)
     {
         stone -= stoneAmount;
@@ -50,8 +58,8 @@ public class GameManager : MonoBehaviour
         warehouseStone(stone);
     }
 
-    //private void ReBuildNavMesh()
-    //{
-    //    nms.BuildNavMesh();
-    //}
+    private void ReBuildNavMesh()
+    {
+        nms.BuildNavMesh();
+    }
 }
