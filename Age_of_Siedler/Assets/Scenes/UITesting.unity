@@ -314,6 +314,7 @@ MonoBehaviour:
   houseCollider: {fileID: 218553970}
   warehouse: {fileID: 0}
   warehouseCollider: {fileID: 0}
+  transperenci: {r: 0, g: 0, b: 0, a: 0}
   isHouse: 0
 --- !u!1001 &515118583
 PrefabInstance:
@@ -543,7 +544,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: efdda94dc03f4544f9d78402baa68a5d, type: 2}
 --- !u!4 &737763909
@@ -1117,6 +1118,31 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4171094613594487728, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171094613594487728, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387247872000159473, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387247873107711702, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387247873107711702, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5387247873766524338, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1172,37 +1198,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4171094613594487728, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4171094613594487728, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387247872000159473, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5387247872000159472, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7633318639954877997, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387247873107711702, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387247873107711702, guid: d8adf9388c9854f4da22ec7abbd5a8b5,
         type: 3}
       propertyPath: m_Layer
       value: 0

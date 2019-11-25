@@ -14,6 +14,7 @@ public class SpawnObjects : MonoBehaviour
     public BoxCollider houseCollider;
     public GameObject warehouse;
     public BoxCollider warehouseCollider;
+    public Color transperenci;
 
     private int woodCostMain;
     private int stoneCostMain;
@@ -54,6 +55,7 @@ public class SpawnObjects : MonoBehaviour
             Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hitInfo, groundLayer);
             house.transform.position = new Vector3(hitInfo.point.x, house.transform.position.y, hitInfo.point.z);
             Debug.Log(spawnBlockCount + " spawn block count");
+            //ChangColor(house.transform.GetChild(1));
             if (Input.GetButtonDown("Fire1"))
             {
                 if (spawnBlockCount == 0 && gm.wood >= woodCostMain && gm.stone >= stoneCostMain)
@@ -95,5 +97,11 @@ public class SpawnObjects : MonoBehaviour
     {
         warehouse.SetActive(true);
         isWarehouse = true;
+    }
+
+    // Könnte so vielleicht Funktionieren xD
+    private void ChangColor(Transform objectToSpawn)
+    {
+        objectToSpawn.gameObject.GetComponent<Renderer>().material.color = transperenci;
     }
 }
