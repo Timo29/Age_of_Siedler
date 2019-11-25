@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SpawnHouseScript : MonoBehaviour
+public class SpawnHouse : GameManager
 {
     enum ChanceDetails
     {
@@ -12,13 +13,17 @@ public class SpawnHouseScript : MonoBehaviour
 
     }
 
-
+    public Text woodText;
+    public Text stoneText;
 
     public Camera myCamera;
 
     public bool lagerBool = false;
     public bool dorfzBool = false;
+    public LayerMask Ground;
     public bool spawn = false;
+
+
 
     public GameObject dorf;
     public GameObject lagerbase;
@@ -64,6 +69,12 @@ public class SpawnHouseScript : MonoBehaviour
     {
 
 
+        woodText.text = "Wood: " + wood.ToString();
+        stoneText.text = "Stone: " + stone.ToString();
+
+
+
+
         if (lagerBool == true)
         {
             lagerbase.SetActive(true);
@@ -83,14 +94,13 @@ public class SpawnHouseScript : MonoBehaviour
         Ray ray = myCamera.ScreenPointToRay(Input.mousePosition);
 
 
-        Physics.Raycast(ray, out hit);
+        Physics.Raycast(ray, out hit, 1000, Ground);
         {
-            if (hit.transform.gameObject.tag == "floor")
-            {
 
-                dorf.transform.position = hit.point;
-                lagerbase.transform.position = hit.point;
-            }
+
+            dorf.transform.position = hit.point;
+            lagerbase.transform.position = hit.point;
+
 
             if (Input.GetMouseButtonDown(0))
             {
