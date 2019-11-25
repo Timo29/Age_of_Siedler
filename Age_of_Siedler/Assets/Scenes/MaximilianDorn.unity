@@ -247,11 +247,12 @@ MonoBehaviour:
   seed: 999
   useRandomSeed: 1
   width: 100
-  height: 80
+  height: 100
   randomFillPercent: 25
   recourceChance: 90
-  woodStoneRatio: 94
+  woodStoneRatio: 65
   normalizeCount: 15
+  extendedWater: 50
 --- !u!4 &341094637
 Transform:
   m_ObjectHideFlags: 0

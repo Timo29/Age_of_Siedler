@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class ReworkedMapGenerator : MonoBehaviour
 {
+    [Header("Block Prefabs")]
     public GameObject grasBlock = null;
     public GameObject waterBlock = null;
     public GameObject[] stoneBlock = null;
     public GameObject[] woodBlock = null;
 
+    [Header("Seed Settings")]
     public string seed;
     public bool useRandomSeed;
 
@@ -21,19 +23,26 @@ public class ReworkedMapGenerator : MonoBehaviour
     private Transform[,] gameMap;
     private Transform[,] recourceMapBlocks;
 
+    [Header("Map Width + Height")]
     public int width;
     public int height;
 
+    [Header("Chance for Water/Ground")]
     [Range(0, 100)]
     public int randomFillPercent;
 
+    [Header("Chance for Recources to Spawns")]
     [Range(0, 100)]
     public int recourceChance;
 
+    [Header("Wood Stone Ratio")]
     [Range(0, 100)]
     public int woodStoneRatio;
 
+    [Header("Developer Settings")]
     public int normalizeCount = 4;
+
+    public int extendedWater = 100;
 
     private bool activateOnce = false;
 
@@ -43,8 +52,12 @@ public class ReworkedMapGenerator : MonoBehaviour
         return map[x, y];
     }
 
+
     private void Start()
     {
+        width = width + extendedWater;
+        height = height + extendedWater;
+
         GenerateMap();
         GenerateRecources();
     }
@@ -68,6 +81,44 @@ public class ReworkedMapGenerator : MonoBehaviour
 
 
 
+    //public void InstantiateMapValues()
+    //{
+    //    Debug.Log("InstantiateMapValues");
+    //    if (useRandomSeed)
+    //    {
+    //        seed = Time.time.ToString();
+    //    }
+
+    //    //System.Random random = new System.Random(seed.GetHashCode());
+
+    //    map = new bool[width, height];
+
+    //    for (int x = 0; x < width; x++)
+    //    {
+    //        for (int y = 0; y < height; y++)
+    //        {
+    //            if(x == 0 || x == width - 1 || y == 0 || y == height - 1)
+    //            {
+    //                map[x, y] = WALL;
+    //            }
+    //            else
+    //            {
+    //                //var chance = random.Next(0, 100);
+    //                //var chance = UnityEngine.Random.Range(0, 100);
+    //                if (UnityEngine.Random.Range(0, 100) > randomFillPercent)
+    //                {
+    //                    map[x, y] = GROUND;
+    //                }
+    //                else
+    //                {
+    //                    map[x, y] = WALL;
+    //                }
+    //            }
+    //        }
+    //    }
+    //    NormalizeMap(normalizeCount);
+    //}
+
     public void InstantiateMapValues()
     {
         Debug.Log("InstantiateMapValues");
@@ -84,7 +135,7 @@ public class ReworkedMapGenerator : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if(x == 0 || x == width - 1 || y == 0 || y == height - 1)
+                if (x < extendedWater/2 || x > width - extendedWater/2 || y < extendedWater/2 || y > width - extendedWater/2)
                 {
                     map[x, y] = WALL;
                 }
@@ -108,6 +159,7 @@ public class ReworkedMapGenerator : MonoBehaviour
 
     public void FillMap()
     {
+
         gameMap = new Transform[width, height];
 
         for (int x = 0; x < width; x++)
