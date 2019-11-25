@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollisionScript : MonoBehaviour
 {
 
-    private SpawnHouseScript spawnHouse;
+    private SpawnHouse spawnHouse;
 
     public Material[] matrials;
     Renderer rend;
@@ -20,7 +20,7 @@ public class CollisionScript : MonoBehaviour
     {
         if (collision.collider.tag == "house")
         {
-            GameObject.FindGameObjectWithTag("UIManager").GetComponent<SpawnHouseScript>().spawn = false;
+            GameObject.FindGameObjectWithTag("UIManager").GetComponent<SpawnHouse>().spawn = false;
             print("Collision");
 
 
@@ -36,7 +36,7 @@ public class CollisionScript : MonoBehaviour
         if (collision.collider.tag == "house")
         {
 
-            GameObject.FindGameObjectWithTag("UIManager").GetComponent<SpawnHouseScript>().spawn = true;
+            GameObject.FindGameObjectWithTag("UIManager").GetComponent<SpawnHouse>().spawn = true;
 
 
         }

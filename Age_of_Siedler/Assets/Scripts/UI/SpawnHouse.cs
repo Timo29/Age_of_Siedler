@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpawnHouseScript : MonoBehaviour
+public class SpawnHouse : GameManager
 {
     enum ChanceDetails
     {
@@ -14,17 +14,18 @@ public class SpawnHouseScript : MonoBehaviour
     public LayerMask groundLayer;
     public Camera myCamera;
 
-    public bool lagerBool = false;
-    public bool dorfzBool = false;
-    public bool spawnbuiling;
+    private bool lagerBool = false;
+    private bool dorfzBool = false;
     public bool spawn = false;
-    public bool spawnHouse = false;
+
+    public bool buyAmount;
+
+
 
     public GameObject dorf;
     public GameObject lagerbase;
 
-    int villagerMax;
-    int currentVillager;
+
 
 
     [SerializeField]
@@ -43,6 +44,29 @@ public class SpawnHouseScript : MonoBehaviour
 
         }
 
+        if (wood <= 50)
+        {
+            buyAmount = false;
+            print("Not Enought Money");
+
+        }
+
+        else if (wood >= 50)
+        {
+            buyAmount = true;
+        }        
+        if (stone <= 50)
+        {
+            buyAmount = false;
+            print("Not Enought Money");
+
+        }
+
+        else if (stone >= 50)
+        {
+            buyAmount = true;
+        }
+
         lagerBool = true;
         spawn = true;
 
@@ -56,6 +80,30 @@ public class SpawnHouseScript : MonoBehaviour
         {
             houseIndex = 0;
         }
+
+        if (wood <= 50)
+        {
+            buyAmount = false;
+            print("Not Enought Money");
+        }
+
+        else if (wood >= 50)
+        {
+            buyAmount = true;
+        }
+        if (stone <= 50)
+        {
+            buyAmount = false;
+            print("Not Enought Money");
+
+        }
+
+        else if (stone >= 50)
+        {
+            buyAmount = true;
+        }
+
+
         dorfzBool = true;
         spawn = true;
 
@@ -66,7 +114,10 @@ public class SpawnHouseScript : MonoBehaviour
     void Update()
     {
 
-        text.text = currentVillager.ToString() + " / " + villagerMax.ToString();
+        
+
+
+
 
 
 
@@ -90,21 +141,19 @@ public class SpawnHouseScript : MonoBehaviour
         Ray ray = myCamera.ScreenPointToRay(Input.mousePosition);
 
 
-        if (Physics.Raycast(ray, out hit, 50, groundLayer))
+        if (Physics.Raycast(ray, out hit, 1000, groundLayer))
         {
    
 
                 dorf.transform.position = hit.point;
                 lagerbase.transform.position = hit.point;
-                spawnHouse = true;
             
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (spawn == true && spawnHouse == true)
+                if (spawn == true && buyAmount == true)
                 {
                     Instantiate(dorfZentrumHouse, hit.point, Quaternion.identity * Quaternion.Euler(0, 90, 0));
-                    spawnbuiling = true;
                     spawn = false;
                     lagerBool = false;
                     dorfzBool = false;
@@ -120,15 +169,7 @@ public class SpawnHouseScript : MonoBehaviour
         }
 
 
-        if (spawnbuiling == true)
-        {
-            if (houseIndex == 0)
-            {
-                villagerMax += 15;
-                spawnbuiling = false;
 
-            }
-        }
     }
 
     void ApplyChange(ChanceDetails detail, int id)
