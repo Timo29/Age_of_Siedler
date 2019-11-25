@@ -54,7 +54,7 @@ public class SpawnHouse : GameManager
         else if (wood >= 50)
         {
             buyAmount = true;
-        }        
+        }
         if (stone <= 50)
         {
             buyAmount = false;
@@ -66,6 +66,7 @@ public class SpawnHouse : GameManager
         {
             buyAmount = true;
         }
+
 
         lagerBool = true;
         spawn = true;
@@ -81,10 +82,12 @@ public class SpawnHouse : GameManager
             houseIndex = 0;
         }
 
+
         if (wood <= 50)
         {
             buyAmount = false;
             print("Not Enought Money");
+
         }
 
         else if (wood >= 50)
@@ -103,7 +106,6 @@ public class SpawnHouse : GameManager
             buyAmount = true;
         }
 
-
         dorfzBool = true;
         spawn = true;
 
@@ -114,7 +116,8 @@ public class SpawnHouse : GameManager
     void Update()
     {
 
-        
+
+
 
 
 
@@ -154,6 +157,9 @@ public class SpawnHouse : GameManager
                 if (spawn == true && buyAmount == true)
                 {
                     Instantiate(dorfZentrumHouse, hit.point, Quaternion.identity * Quaternion.Euler(0, 90, 0));
+
+
+
                     spawn = false;
                     lagerBool = false;
                     dorfzBool = false;

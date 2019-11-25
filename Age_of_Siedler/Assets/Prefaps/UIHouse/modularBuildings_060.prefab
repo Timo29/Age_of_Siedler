@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1347070994361484768}
   - component: {fileID: 1347070994361484770}
   - component: {fileID: 8025973382352031656}
+  - component: {fileID: 6263814564709521603}
   m_Layer: 0
   m_Name: modularBuildings_060
-  m_TagString: house
+  m_TagString: warehouse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +119,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6263814564709521603
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347070994361484771}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0355296, y: 0.6387872, z: 0.9940784}
+  m_Center: {x: -0.48556495, y: 0.31088, z: -0.50036883}
 --- !u!1 &2657560540361431933
 GameObject:
   m_ObjectHideFlags: 0
