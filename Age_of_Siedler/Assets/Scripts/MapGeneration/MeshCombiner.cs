@@ -20,6 +20,7 @@ public class MeshCombiner : MonoBehaviour
     {
         ground = GameObject.Find("CombinedMesh_GrasBlock (UnityEngine.Material)");
         ground.layer = 9;
+        ground.AddComponent<MeshCollider>();
     }
 
     public void CombineByMaterial()

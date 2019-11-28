@@ -73,7 +73,7 @@ public class ReworkedMapGenerator : MonoBehaviour
         }
     }
 
-    void GenerateMap()
+    public void GenerateMap()
     {
         InstantiateMapValues();     
         FillMap();
