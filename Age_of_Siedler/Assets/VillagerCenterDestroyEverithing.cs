@@ -15,13 +15,10 @@ public class VillagerCenterDestroyEverithing : MonoBehaviour
         MasterManager.onCompliteMapBuild += DestroyAll;
     }
 
-    private void FixedUpdate()
-    {
-        toDestroyObjects = Physics.OverlapSphere(transform.position, radius, destroyObjectsLayer);
-    }
-
     void DestroyAll()
     {
+        toDestroyObjects = Physics.OverlapSphere(transform.position, radius, destroyObjectsLayer);
+
         for (int i = 0; i < toDestroyObjects.Length; i++)
         {
             Destroy(toDestroyObjects[i].gameObject);
