@@ -84,14 +84,14 @@ public class RecourceManagement : MonoBehaviour
                 if (recourceMap[x, y] == 1)
                 {
                     //May delete 0.5f afterwards
-                    block2 = Instantiate(stoneBlock[UnityEngine.Random.Range(0, stoneBlock.Length - 1)], transform, false);
-                    //block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
+                    block2 = Instantiate(stoneBlock[UnityEngine.Random.Range(0, stoneBlock.Length)], transform, false);
+                    block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
                     block2.transform.localPosition = new Vector3(x + 0.5f, 0, y + 0.5f);
                 }
                 else if (recourceMap[x, y] == 2)
                 {
-                    block2 = Instantiate(woodBlock[UnityEngine.Random.Range(0, woodBlock.Length - 1)], transform, false);
-                    //block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
+                    block2 = Instantiate(woodBlock[UnityEngine.Random.Range(0, woodBlock.Length)], transform, false);
+                    block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
                     block2.transform.localPosition = new Vector3(x + 0.5f, 0, y + 0.5f);
                 }
             }

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2725425464498563753}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tree2
-  m_TagString: Untagged
+  m_TagString: resourceWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 5187222357742923074}
   - component: {fileID: 4530081953409810866}
   - component: {fileID: 4654425427378312234}
-  m_Layer: 0
+  - component: {fileID: 2666986593299101120}
+  m_Layer: 11
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,3 +127,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.45000002, y: 2, z: -0.5}
   m_TimeToStationary: 0.5
+--- !u!65 &2666986593299101120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4865501072733748519}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 2, z: 0.6}
+  m_Center: {x: -0.45000002, y: 2, z: -0.5}
