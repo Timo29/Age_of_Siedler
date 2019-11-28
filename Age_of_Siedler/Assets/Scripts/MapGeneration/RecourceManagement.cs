@@ -23,10 +23,14 @@ public class RecourceManagement : MonoBehaviour
     [Range(0, 100)]
     public int woodStoneRatio;
 
-    private void SetWidthAndHeight()
+
+    public void GenerateRecources()
     {
         width = map.width;
         height = map.height;
+
+        InstantiateRecourceMapValues();
+        FillRecourceMap();
     }
 
     private void InstantiateRecourceMapValues()
@@ -99,9 +103,7 @@ public class RecourceManagement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             Debug.Log("Instantiate");
-            SetWidthAndHeight();
-            InstantiateRecourceMapValues();
-            FillRecourceMap();
+            GenerateRecources();
         }
     }
 }
