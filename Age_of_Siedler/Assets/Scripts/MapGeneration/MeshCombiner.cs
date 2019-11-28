@@ -5,37 +5,21 @@ using UnityEngine;
 
 public class MeshCombiner : MonoBehaviour
 {
+    public GameObject ground;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
             CombineByMaterial();
+            SetLayer();
         }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            Combine();
-        }
-
     }
 
-    public void Reset()
+    public void SetLayer()
     {
-        List<GameObject> gosToDelete = new List<GameObject>();
-
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(true);
-            if (transform.GetChild(i).name.StartsWith("CombinedMesh_"))
-                gosToDelete.Add(transform.GetChild(i).gameObject);
-            
-            GetComponent<MeshFilter>().sharedMesh = null;
-            GetComponent<MeshRenderer>().materials = new Material[0];
-        }
-
-        for(int j = 0; j<gosToDelete.Count; j++)
-        {
-            DestroyImmediate(gosToDelete[j]);
-        }
+        ground = GameObject.Find("CombinedMesh_GrasBlock (UnityEngine.Material)");
+        ground.layer = 9;
     }
 
     public void CombineByMaterial()
