@@ -42,7 +42,7 @@ public class SpawnManager : MonoBehaviour
         {
             sp.isHouse = false;
             sp.house.SetActive(false);
-            sp.showWarehouse();
+            sp.showWarehouse(costWood, costStone);
         }
         else
             Debug.Log("Nicht genug Resourcen");

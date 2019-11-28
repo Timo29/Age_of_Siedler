@@ -53,9 +53,10 @@ public class SpawnObjects : MonoBehaviour
         {
             RaycastHit hitInfo;
             Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hitInfo, groundLayer);
+            Debug.Log(hitInfo.transform.gameObject + " Hit GameObject");
+            Debug.Log(hitInfo.transform.gameObject.layer);
             house.transform.position = new Vector3(hitInfo.point.x, house.transform.position.y, hitInfo.point.z);
             Debug.Log(spawnBlockCount + " spawn block count");
-            //ChangColor(house.transform.GetChild(1));
             if (Input.GetButtonDown("Fire1"))
             {
                 if (spawnBlockCount == 0 && gm.wood >= woodCostMain && gm.stone >= stoneCostMain)
@@ -77,8 +78,26 @@ public class SpawnObjects : MonoBehaviour
         {
             RaycastHit hitInfo;
             Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hitInfo, groundLayer);
-            Debug.Log(hitInfo.point);
-            warehouse.transform.position = hitInfo.point;
+            Debug.Log(hitInfo.transform.gameObject + " Hit GameObject");
+            Debug.Log(hitInfo.transform.gameObject.layer);
+            warehouse.transform.position = new Vector3(hitInfo.point.x, warehouse.transform.position.y, hitInfo.point.z);
+            Debug.Log(spawnBlockCount + " spawn block count");
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (spawnBlockCount == 0 && gm.wood >= woodCostMain && gm.stone >= stoneCostMain)
+                {
+                    GameObject buildingTemp = Instantiate(warehouse, warehouse.transform.position, Quaternion.identity);
+                    buildingTemp.transform.GetChild(0).gameObject.SetActive(true);
+                    buildingTemp.transform.GetChild(1).GetComponent<ObjectSpawnCollision>().enabled = false;
+                    buildingTemp.transform.GetChild(1).gameObject.SetActive(false);
+                    onWoodDec(woodCostMain);
+                    onStoneDec(stoneCostMain);
+                }
+                else if (gm.wood <= woodCostMain && gm.stone <= stoneCostMain)
+                {
+                    UnSelect();
+                }
+            }
         }
     }
 
@@ -87,15 +106,18 @@ public class SpawnObjects : MonoBehaviour
     {
         woodCostMain = woodCost;
         stoneCostMain = stoneCost;
-        Debug.Log("Spawn House");
         house.transform.GetChild(0).gameObject.SetActive(false);
         house.transform.GetChild(1).gameObject.SetActive(true);
         house.SetActive(true);
         isHouse = true;
     }
 
-    public void showWarehouse()
+    public void showWarehouse(int woodCost, int stoneCost)
     {
+        woodCostMain = woodCost;
+        stoneCostMain = stoneCost;
+        warehouse.transform.GetChild(0).gameObject.SetActive(false);
+        warehouse.transform.GetChild(1).gameObject.SetActive(true);
         warehouse.SetActive(true);
         isWarehouse = true;
     }
