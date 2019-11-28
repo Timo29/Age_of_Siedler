@@ -350,12 +350,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 2082275137}
   stoneBlock:
-  - {fileID: 1793460863127075531, guid: 76014fc5b65fda84c9400d1146f5f7b3, type: 3}
+  - {fileID: 4680853828310311162, guid: c58fac1998fe20043a1b7bebe40e1a14, type: 3}
+  - {fileID: 4875604694423155736, guid: c8354635f85fb7d448762c062cad63db, type: 3}
+  - {fileID: 7423009231367581278, guid: 2a6946c019cc58343800ff1eab36593e, type: 3}
   woodBlock:
-  - {fileID: 2247395674480139962, guid: e1f4ad3ac9130c647b7ed6e7703a66ec, type: 3}
+  - {fileID: 1664294781762156207, guid: c836af1ed5d7ece47861e39486af07ee, type: 3}
+  - {fileID: 1407922293487392954, guid: dd0f66b7e2393814e8298fd8b1815114, type: 3}
+  - {fileID: 477004367787162066, guid: ef8380211a2ae4c4d8d3766fb2dab3ee, type: 3}
   width: 0
   height: 0
-  recourceChance: 95
+  recourceChance: 80
   woodStoneRatio: 65
 --- !u!4 &1071676636
 Transform:

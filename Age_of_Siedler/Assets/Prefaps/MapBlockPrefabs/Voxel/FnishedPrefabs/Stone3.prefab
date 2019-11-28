@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5355967180306462550}
   - component: {fileID: 1158107344359158154}
   - component: {fileID: 8992082402521771492}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5861586964910365773}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stone3
   m_TagString: resourceStone
   m_Icon: {fileID: 0}
