@@ -55,7 +55,7 @@ public class PlayerManager_v2 : MonoBehaviour
             Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hitInfo);
             if (currentResident != null)
             {
-                //Debug.Log(hitInfo.transform.tag + " Target Tag");
+                Debug.Log(hitInfo.transform.tag + " Target Tag");
                 Player player = currentResident.GetComponent<Player>();
                 switch (hitInfo.transform.tag)
                 {
