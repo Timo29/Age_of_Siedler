@@ -127,12 +127,12 @@ public class ReworkedMapGenerator : MonoBehaviour
 
     public void InstantiateMapValues()
     {
-        if (useRandomSeed)
-        {
-            seed = Time.time.ToString();
-        }
+        //if (useRandomSeed)
+        //{
+        //    seed = Time.time.ToString();
+        //}
 
-        //System.Random random = new System.Random(seed.GetHashCode());
+        System.Random random = new System.Random(seed.GetHashCode());
 
         map = new bool[width, height];
 
@@ -146,9 +146,9 @@ public class ReworkedMapGenerator : MonoBehaviour
                 }
                 else
                 {
-                    //var chance = random.Next(0, 100);
+                    var chance = random.Next(0, 100);
                     //var chance = UnityEngine.Random.Range(0, 100);
-                    if (UnityEngine.Random.Range(0, 100) > randomFillPercent)
+                    if (chance > randomFillPercent)
                     {
                         map[x, y] = GROUND;
                     }

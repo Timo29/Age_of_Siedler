@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1719502314642981344}
   - component: {fileID: 7997905820175871248}
   - component: {fileID: 9102576806231024308}
+  - component: {fileID: 3053580791025883704}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -95,6 +96,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.5, y: 1, z: -0.5}
   m_TimeToStationary: 0.5
+--- !u!65 &3053580791025883704
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415794997494108549}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 1, z: 0.9}
+  m_Center: {x: -0.5, y: 1, z: -0.5}
 --- !u!1 &4875604694423155736
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +120,7 @@ GameObject:
   - component: {fileID: 8499129757165110795}
   m_Layer: 0
   m_Name: Stone2
-  m_TagString: Untagged
+  m_TagString: resourceStone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
