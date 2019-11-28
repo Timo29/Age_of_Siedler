@@ -37,6 +37,7 @@ public class deliveryState : StateMachineBehaviour
 
     private Vector3 nextWarehouseFinder()
     {
+        Debug.Log("Suche WareHouse");
         Vector3 nextWarehouse = new Vector3();
         float closestWarehouse = 0;
 

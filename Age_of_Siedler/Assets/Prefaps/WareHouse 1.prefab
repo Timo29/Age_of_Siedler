@@ -32,6 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &479174696
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4724065037751541195}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30877972, y: 0.28227907, z: 0.20299104}
+  m_Center: {x: -0.124634475, y: 0.058308173, z: 0.029993061}
 --- !u!208 &479174697
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -48,19 +61,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.125, y: 0.058000002, z: 0.030000001}
   m_TimeToStationary: 0.5
---- !u!65 &479174696
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4724065037751541195}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.30877972, y: 0.28227907, z: 0.20299104}
-  m_Center: {x: -0.124634475, y: 0.058308173, z: 0.029993061}
 --- !u!114 &479174695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,21 +73,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5508584749f52e4aa2033224372d7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &479174699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8158036703713617598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ed6df1df13b514faa19141ee3eee79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildTime: 30
-  house: {fileID: 4724065037751541195}
-  houseInBuild: {fileID: 8158036703713617598}
 --- !u!208 &479174698
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -104,6 +89,34 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.15300001, y: 0, z: -0.007}
   m_TimeToStationary: 0.5
+--- !u!114 &479174699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158036703713617598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ed6df1df13b514faa19141ee3eee79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildTime: 30
+  house: {fileID: 4724065037751541195}
+  houseInBuild: {fileID: 8158036703713617598}
+--- !u!65 &3188845714902449545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158036703713617598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31675464, y: 0.26994509, z: 0.027742798}
+  m_Center: {x: 0.15323135, y: -0.00039370358, z: -0.0068304734}
 --- !u!1001 &150525610433560503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -221,6 +234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: warehousev3
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6575d4bf562fd8245922e211f07247fc,
+        type: 3}
+      propertyPath: m_TagString
+      value: warehouse
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6575d4bf562fd8245922e211f07247fc,
         type: 3}

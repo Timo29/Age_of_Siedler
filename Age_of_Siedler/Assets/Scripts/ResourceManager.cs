@@ -13,7 +13,7 @@ public class ResourceManager : MonoBehaviour
         Resource.onResourceDel += DeleteResourceFromDictionary;
         stoneCatalog = new List<GameObject>();
         woodCatalog = new List<GameObject>();
-        AddAllResources();
+        MasterManager.onStartMap += AddAllResources;
     }
 
     private void Update()

@@ -8,6 +8,9 @@ public class MasterManager : MonoBehaviour
     public RecourceManagement recourceMapGenerator;
     public MeshCombiner combiner;
 
+    public delegate void BackeNavMesh ();
+    public static event BackeNavMesh onStartMap;
+
     IEnumerator MapInitialize()
     {       
         mapGenerator.GenerateMap();
@@ -21,6 +24,7 @@ public class MasterManager : MonoBehaviour
         combiner.SetLayer();
         yield return new WaitForSeconds(1f);
         Debug.Log("4");
+        onStartMap();
 
         yield return null;
     }

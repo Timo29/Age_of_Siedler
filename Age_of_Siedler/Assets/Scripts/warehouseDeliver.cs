@@ -14,6 +14,7 @@ public class warehouseDeliver : MonoBehaviour
     {
         if (other.gameObject.tag == "resident")
         {
+            Debug.Log("player ist da");
             if (other.gameObject.GetComponent<Player>().isWorking)
             {
                 Player player = other.gameObject.GetComponent<Player>();
@@ -32,6 +33,11 @@ public class warehouseDeliver : MonoBehaviour
                     other.gameObject.GetComponent<Animator>().SetBool("isMoving", true);
                 }
             } 
+        }
+
+        else if(other.gameObject.tag == "resourceWood" || other.gameObject.tag == "resourceStone")
+        {
+            Destroy(other.gameObject);
         }
     }
 }

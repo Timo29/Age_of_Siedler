@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         warehouseDeliver.onWoodAdd += AddWood;
         SpawnObjects.onWoodDec += DecWood;
         SpawnObjects.onStoneDec += DecStone;
+        MasterManager.onStartMap += ReBuildNavMesh;
     }
 
     private void Update()
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
     private void AddWood(float woodAmount)
     {
         wood += woodAmount;
-        warehouseWood(wood);
+        //warehouseWood(wood);
     }
 
     private void AddStone(float stoneAmount)
