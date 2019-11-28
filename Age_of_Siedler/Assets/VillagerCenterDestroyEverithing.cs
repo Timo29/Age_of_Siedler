@@ -12,15 +12,12 @@ public class VillagerCenterDestroyEverithing : MonoBehaviour
     void Start()
     {
         transform = GetComponent<Transform>();
+        MasterManager.onCompliteMapBuild += DestroyAll;
     }
 
     private void FixedUpdate()
     {
         toDestroyObjects = Physics.OverlapSphere(transform.position, radius, destroyObjectsLayer);
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            DestroyAll();
-        }
     }
 
     void DestroyAll()
