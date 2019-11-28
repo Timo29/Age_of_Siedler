@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4047209351966190453}
   - component: {fileID: 1793460863244773757}
   - component: {fileID: 1793460863244773754}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rock_19 (4)
   m_TagString: resourceStone
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4609836795125239556}
   - component: {fileID: 2247395674677315951}
   - component: {fileID: 2247395674677315950}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpruceTree2
   m_TagString: resourceWood
   m_Icon: {fileID: 0}
