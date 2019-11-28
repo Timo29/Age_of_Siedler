@@ -11,6 +11,9 @@ public class MasterManager : MonoBehaviour
     public delegate void BackeNavMesh ();
     public static event BackeNavMesh onStartMap;
 
+    public delegate void ClearArea();
+    public static event ClearArea onCompliteMapBuild;
+
     IEnumerator MapInitialize()
     {       
         mapGenerator.GenerateMap();
@@ -25,6 +28,8 @@ public class MasterManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Debug.Log("4");
         onStartMap();
+        yield return new WaitForSeconds(2f);
+        onCompliteMapBuild();
 
         yield return null;
     }
