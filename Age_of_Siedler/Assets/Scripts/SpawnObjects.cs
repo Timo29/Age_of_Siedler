@@ -53,8 +53,6 @@ public class SpawnObjects : MonoBehaviour
         {
             RaycastHit hitInfo;
             Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hitInfo, groundLayer);
-            Debug.Log(hitInfo.transform.gameObject + " Hit GameObject");
-            Debug.Log(hitInfo.transform.gameObject.layer);
             house.transform.position = new Vector3(hitInfo.point.x, house.transform.position.y, hitInfo.point.z);
             Debug.Log(spawnBlockCount + " spawn block count");
             if (Input.GetButtonDown("Fire1"))

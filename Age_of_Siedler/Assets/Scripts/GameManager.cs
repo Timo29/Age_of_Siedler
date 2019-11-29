@@ -27,33 +27,28 @@ public class GameManager : MonoBehaviour
         warehouseDeliver.onWoodAdd += AddWood;
         SpawnObjects.onWoodDec += DecWood;
         SpawnObjects.onStoneDec += DecStone;
+        SpawnManager.onSpawnVillagerWoodCost += DecWood;
+        SpawnManager.onSpawnVillagerStoneCost += DecStone;
         MasterManager.onStartMap += ReBuildNavMesh;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            ReBuildNavMesh();
-        }
+        MasterManager.onStartMap += InstanceResourceConts;
     }
 
     private void DecStone(int stoneAmount)
     {
         stone -= stoneAmount;
-        //warehouseWood(stone);
+        warehouseWood(stone);
     }
 
     private void DecWood(int woodAmount)
     {
         wood -= woodAmount;
-        //warehouseWood(wood);
+        warehouseWood(wood);
     }
 
     private void AddWood(float woodAmount)
     {
         wood += woodAmount;
-        //warehouseWood(wood);
+        warehouseWood(wood);
     }
 
     private void AddStone(float stoneAmount)
@@ -67,14 +62,9 @@ public class GameManager : MonoBehaviour
         nms.BuildNavMesh();
     }
 
-    //public void LoadScen()
-    //{
-    //    float loadingTime = 10;
-
-    //    while (!(loadingTime <= 0))
-    //    {
-    //        loadingTime -= UnityEngine.Random.Range(0.1f, 0.6f);
-    //        loadingImage.fillAmount = loadingTime / 10;
-    //    }
-    //}
+    private void InstanceResourceConts()
+    {
+        warehouseStone(stone);
+        warehouseWood(wood);
+    }
 }

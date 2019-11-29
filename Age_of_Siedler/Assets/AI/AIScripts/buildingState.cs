@@ -18,6 +18,7 @@ public class buildingState : StateMachineBehaviour
     {
         if (aiController.building.buildTime <= 0f)
         {
+            aiController.work.fillAmount = 0f;
             aiController.StopCoroutine("Build");
             animator.SetBool("isBuilding", false);
         }
