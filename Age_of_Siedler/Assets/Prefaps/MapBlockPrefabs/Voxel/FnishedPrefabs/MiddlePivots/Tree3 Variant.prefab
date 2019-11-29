@@ -25,6 +25,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree3 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 477004367787162066, guid: ef8380211a2ae4c4d8d3766fb2dab3ee,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3514480242994809793, guid: ef8380211a2ae4c4d8d3766fb2dab3ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -79,6 +84,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514480242994809793, guid: ef8380211a2ae4c4d8d3766fb2dab3ee,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514480242994809793, guid: ef8380211a2ae4c4d8d3766fb2dab3ee,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514480242994809793, guid: ef8380211a2ae4c4d8d3766fb2dab3ee,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6389252068298184953, guid: ef8380211a2ae4c4d8d3766fb2dab3ee,
         type: 3}

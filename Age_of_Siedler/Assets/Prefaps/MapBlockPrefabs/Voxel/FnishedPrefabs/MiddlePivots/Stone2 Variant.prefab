@@ -25,6 +25,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4875604694423155736, guid: c8354635f85fb7d448762c062cad63db,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8499129757165110795, guid: c8354635f85fb7d448762c062cad63db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -79,6 +84,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499129757165110795, guid: c8354635f85fb7d448762c062cad63db,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499129757165110795, guid: c8354635f85fb7d448762c062cad63db,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499129757165110795, guid: c8354635f85fb7d448762c062cad63db,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2133622883526972723, guid: c8354635f85fb7d448762c062cad63db,
         type: 3}
