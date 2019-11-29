@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("Resources")]
     public float wood;
     public float stone;
+    public float villagerMax;
 
     public NavMeshSurface nms;
 

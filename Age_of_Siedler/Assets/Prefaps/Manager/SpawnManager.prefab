@@ -46,6 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
   sp: {fileID: 982530626769847836}
+  villagerPrefab: {fileID: 3705363342776372686, guid: cd6f02df3da55694d84f8ce99aab5aed,
+    type: 3}
+  maxVillager: 25
+  currentVillager: 1
+  houseVillagerAmount: 5
 --- !u!114 &982530626769847836
 MonoBehaviour:
   m_ObjectHideFlags: 0

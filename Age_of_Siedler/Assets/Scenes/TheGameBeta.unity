@@ -126,6 +126,18 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 449093449}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &279962667 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 135997771018672392, guid: 221ee66c24f3e52479f63982fce3cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 2107859764748919199}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &318360440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4438742647258416360, guid: d254fa4a9a51b8c468d1d1e2c4de8335,
@@ -942,12 +954,16 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 2138957286}
-    - target: {fileID: 982530626769847838, guid: c75d18b6d5de3e34a9e28ce93c9d758c,
+    - target: {fileID: 982530626769847836, guid: c75d18b6d5de3e34a9e28ce93c9d758c,
         type: 3}
-      propertyPath: villagerPrefab
+      propertyPath: camera
       value: 
-      objectReference: {fileID: 3705363342776372686, guid: cd6f02df3da55694d84f8ce99aab5aed,
+      objectReference: {fileID: 1774656588}
+    - target: {fileID: 982530626769847836, guid: c75d18b6d5de3e34a9e28ce93c9d758c,
         type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 2138957286}
     - target: {fileID: 982530626769847836, guid: c75d18b6d5de3e34a9e28ce93c9d758c,
         type: 3}
       propertyPath: house
@@ -958,16 +974,6 @@ PrefabInstance:
       propertyPath: houseCollider
       value: 
       objectReference: {fileID: 471627323}
-    - target: {fileID: 982530626769847836, guid: c75d18b6d5de3e34a9e28ce93c9d758c,
-        type: 3}
-      propertyPath: gm
-      value: 
-      objectReference: {fileID: 2138957286}
-    - target: {fileID: 982530626769847836, guid: c75d18b6d5de3e34a9e28ce93c9d758c,
-        type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 1774656588}
     - target: {fileID: 982530626769847836, guid: c75d18b6d5de3e34a9e28ce93c9d758c,
         type: 3}
       propertyPath: warehouse
@@ -1539,6 +1545,42 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8544335430123255895, guid: 221ee66c24f3e52479f63982fce3cc56,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054157308816220944, guid: 221ee66c24f3e52479f63982fce3cc56,
+        type: 3}
+      propertyPath: villagerAmount
+      value: 
+      objectReference: {fileID: 279962667}
+    - target: {fileID: 2330184691024692068, guid: 221ee66c24f3e52479f63982fce3cc56,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135754851558460147, guid: 221ee66c24f3e52479f63982fce3cc56,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: be71e856ae83ee640bab3f2db573c45d,
+        type: 3}
+    - target: {fileID: 135997771018672392, guid: 221ee66c24f3e52479f63982fce3cc56,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135997771018672392, guid: 221ee66c24f3e52479f63982fce3cc56,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135997771018672392, guid: 221ee66c24f3e52479f63982fce3cc56,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135997771018672392, guid: 221ee66c24f3e52479f63982fce3cc56,
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0

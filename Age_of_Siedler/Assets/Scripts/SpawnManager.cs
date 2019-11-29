@@ -12,11 +12,22 @@ public class SpawnManager : MonoBehaviour
     GameObject[] spawnPoints;
     public GameObject villagerPrefab;
 
+    #region Events
     public delegate void SpawnVillagerWoodCost(int woodCost);
     public static event SpawnVillagerWoodCost onSpawnVillagerWoodCost;
 
     public delegate void SpawnVillagerStoneCost(int stoneCost);
     public static event SpawnVillagerStoneCost onSpawnVillagerStoneCost;
+
+    public delegate void SpawnVillagerAmount(int currentCount, int maxCount);
+    public static event SpawnVillagerAmount onSpawnVillagerOrHouse;
+    #endregion
+
+    [Header("Villager Settings")]
+    public int maxVillager;
+    public int currentVillager;
+
+    public int houseVillagerAmount;
 
 
     void Start()
@@ -25,14 +36,17 @@ public class SpawnManager : MonoBehaviour
         MenuManager.onSpawnVillager += VillagerSpawn;
         MenuManager.onSpawnHouse += HouseSpawn;
         MenuManager.onSpawnWarehouse += WarehouseSpawn;
+        onSpawnVillagerOrHouse(currentVillager, maxVillager);
     }
     private void VillagerSpawn(int costWood, int costStone)
     {
-        if (gm.wood >= costWood && gm.stone >= costStone)
+        if ((gm.wood >= costWood && gm.stone >= costStone) && currentVillager <= maxVillager)
         {
             Instantiate(villagerPrefab, spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
             onSpawnVillagerWoodCost(costWood);
             onSpawnVillagerStoneCost(costStone);
+            currentVillager++;
+            onSpawnVillagerOrHouse(currentVillager, maxVillager);
 
         }
         //else
@@ -45,6 +59,8 @@ public class SpawnManager : MonoBehaviour
             sp.isWarehouse = false;
             sp.warehouse.SetActive(false);
             sp.showHouse(costWood, costStone);
+            maxVillager += houseVillagerAmount;
+            onSpawnVillagerOrHouse(currentVillager , maxVillager);
         }
         //else
             //Debug.Log("Nicht genug Resourcen");

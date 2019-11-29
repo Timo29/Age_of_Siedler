@@ -9,11 +9,14 @@ public class WarehouseCanvas : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI stoneAmount;
     public TMPro.TextMeshProUGUI woodAmount;
+    public TMPro.TextMeshProUGUI villagerAmount;
+
 
     private void Start()
     {
         GameManager.warehouseStone += addStone;
         GameManager.warehouseWood += addWood;
+        SpawnManager.onSpawnVillagerOrHouse += addVillager;
     }
 
     private void addStone(float stone)
@@ -25,6 +28,12 @@ public class WarehouseCanvas : MonoBehaviour
     private void addWood(float wood)
     {
         woodAmount.text = wood.ToString();
+    }
+
+    private void addVillager(int currenVillager, int maxVillager)
+    {
+        string canvasShow = currenVillager.ToString() + " / " + maxVillager.ToString();
+        villagerAmount.text = canvasShow;
     }
 
     void Update()
