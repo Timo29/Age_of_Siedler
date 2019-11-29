@@ -1,4 +1,4 @@
-﻿//Autor: Stöckmann Timo
+﻿//Autor: Stöckmann Timo + Maximilian Dorn
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,16 +34,9 @@ public class MasterManager : MonoBehaviour
         yield return null;
     }
 
-
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("MapInitialize");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

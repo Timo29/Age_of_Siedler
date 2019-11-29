@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Autor: Maximilian Dorn (Huge support and shoutout to Chris)
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -93,29 +94,8 @@ public class MeshCombiner : MonoBehaviour
             }
         }
 
-        //FinalCombine(combinedGameObjects);
     }
 
-    public void FinalCombine(List<GameObject> combinedGameObjects)
-    {
-        CombineInstance[] combineFinal = new CombineInstance[combinedGameObjects.Count];
-        Material[] materials = new Material[combinedGameObjects.Count];
-
-        for (int i = 0; i < combinedGameObjects.Count; i++)
-        {
-            combineFinal[i].mesh = combinedGameObjects[i].GetComponent<MeshFilter>().sharedMesh;
-            combineFinal[i].transform = combinedGameObjects[i].transform.localToWorldMatrix;
-            combinedGameObjects[i].SetActive(false);
-            materials[i] = combinedGameObjects[i].GetComponent<MeshRenderer>().sharedMaterial;
-        }
-
-        transform.GetComponent<MeshFilter>().sharedMesh = new Mesh();
-        transform.GetComponent<MeshFilter>().sharedMesh.CombineMeshes(combineFinal, false);
-
-        transform.GetComponent<MeshRenderer>().materials = materials;
-
-        transform.gameObject.SetActive(true);
-    }
 
     public void Combine()
     {
@@ -125,9 +105,6 @@ public class MeshCombiner : MonoBehaviour
 
         for (int i = 0; i<transform.childCount; i++)
         {
-            //if (!transform.GetChild(i).gameObject.activeInHierarchy)
-            //    continue;
-
             combine[i].mesh = transform.GetChild(i).GetComponent<MeshFilter>().sharedMesh;
             combine[i].transform = transform.GetChild(i).localToWorldMatrix;
             transform.GetChild(i).gameObject.SetActive(false);

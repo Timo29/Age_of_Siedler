@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Autor: Maximilian Dorn
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,11 +12,11 @@ public class RecourceManagement : MonoBehaviour
     public GameObject[] stoneBlock = null;
     public GameObject[] woodBlock = null;
 
-    public int width;
-    public int height;
+    private int width;
+    private int height;
 
-    public Transform[,] recourceMapBlocks;
-    public int[,] recourceMap;
+    private Transform[,] recourceMapBlocks;
+    private int[,] recourceMap;
 
     [Header("Chance for Recources to Spawns")]
     [Range(0, 100)]
@@ -39,36 +40,24 @@ public class RecourceManagement : MonoBehaviour
     {
         recourceMap = new int[width, height];
 
-        //if (useRandomSeed)
-        //{
-        //    seed = Time.time.ToString();
-        //}
-
-        //System.Random random = new System.Random(seed.GetHashCode());
-
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
                 if (map.map[x, y] == map.GROUND)
                 {
-                    //var chance = random.Next(0, 100);
-                    //var chance = UnityEngine.Random.Range(0, 100);
                     if (UnityEngine.Random.Range(0, 100) > recourceChance)
                     {
                         if (UnityEngine.Random.Range(0, 100) > woodStoneRatio)
                         {
                             recourceMap[x, y] = 1;
                         }
-                        else //if (chance < woodStoneRatio)
+                        else
                         {
                             recourceMap[x, y] = 2;
                         }
                     }
-                    //else
-                    //{
-                    //    recourceMap[x, y] = 0;
-                    //}
+
                 }
             }
         }
@@ -85,7 +74,6 @@ public class RecourceManagement : MonoBehaviour
                 GameObject block2;
                 if (recourceMap[x, y] == 1)
                 {
-                    //May delete 0.5f afterwards
                     block2 = Instantiate(stoneBlock[UnityEngine.Random.Range(0, stoneBlock.Length)], transform, false);
                     if (rotationOn)
                     {
@@ -103,15 +91,6 @@ public class RecourceManagement : MonoBehaviour
                     block2.transform.localPosition = new Vector3(x + 0.5f, 0, y + 0.5f);
                 }
             }
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Instantiate");
-            GenerateRecources();
         }
     }
 }

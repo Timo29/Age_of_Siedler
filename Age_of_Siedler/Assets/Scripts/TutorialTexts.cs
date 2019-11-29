@@ -1,18 +1,20 @@
-﻿using System.Collections;
+﻿//Autor: Maximilian Dorn
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialTexts : MonoBehaviour
 {
     public GameObject[] childs;
+    public GameObject tutorialText;
 
     IEnumerator ShowTutorial()
     {
         yield return new WaitForSeconds(5);
 
-        childs[0].SetActive(true);
+        tutorialText.SetActive(true);
 
-        for (int i = 1; i <= childs.Length; i++)
+        for (int i = 0; i < childs.Length; i++)
         {
             childs[i].SetActive(true);
 
@@ -20,8 +22,8 @@ public class TutorialTexts : MonoBehaviour
 
             childs[i].SetActive(false);
         }
-
-        childs[0].SetActive(false);
+        Debug.Log("I Am Here");
+        tutorialText.SetActive(false);
 
         yield return null;
     }
