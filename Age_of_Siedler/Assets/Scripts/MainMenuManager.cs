@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Autor: Stöckmann Timo
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -37,8 +38,6 @@ public class MainMenuManager : MonoBehaviour
     public void StartGame()
     {
         StartCoroutine(LoadSceneAsync(sceneIndex));
-        //Debug.Log(mapSizeIndex);
-        //Instantiate(listOfMaps[mapSizeIndex][Random.Range(0, listOfMaps[mapSizeIndex].Length)]);
     }
 
     public void Quit()

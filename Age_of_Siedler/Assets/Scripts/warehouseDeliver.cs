@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Autor: Stöckmann Timo
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +15,6 @@ public class warehouseDeliver : MonoBehaviour
     {
         if (other.gameObject.tag == "resident")
         {
-            Debug.Log("player ist da");
             if (other.gameObject.GetComponent<Player>().isWorking)
             {
                 Player player = other.gameObject.GetComponent<Player>();

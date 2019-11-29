@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Autor: Stöckmann Timo
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,7 +38,6 @@ public class deliveryState : StateMachineBehaviour
 
     private Vector3 nextWarehouseFinder()
     {
-        Debug.Log("Suche WareHouse");
         Vector3 nextWarehouse = new Vector3();
         float closestWarehouse = 0;
 

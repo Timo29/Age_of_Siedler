@@ -25,9 +25,4 @@ public class Resource : MonoBehaviour
             onResourceDel(this.gameObject, this.tag);
         }
     }
-
-    //void OnDrawGizmos()
-    //{
-    //    Gizmos.DrawWireCube(transform.position, new Vector3(3f, 1f, 3f));
-    //}
 }

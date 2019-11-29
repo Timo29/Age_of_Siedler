@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Autor: Stöckmann Timo
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,6 @@ public class Building : MonoBehaviour
     {
         if (buildTime <= 0f)
         {
-            Debug.Log("Fertig");
             houseInBuild.gameObject.SetActive(false);
             house.gameObject.SetActive(true);
         }

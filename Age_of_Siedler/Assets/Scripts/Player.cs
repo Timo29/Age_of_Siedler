@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Autor: Stöckmann Timo
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,7 +38,11 @@ public class Player : MonoBehaviour
     internal bool isMoving;
     internal bool newResource = false;
     public Resource workResource;
-    private bool pathDraw;
+
+    private void Awake()
+    {
+        rm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ResourceManager>();
+    }
 
     void Update()
     {
@@ -55,6 +60,7 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, resourceSearchRange);
     }
 
+    //Zeichnet den Weg den der Player geht
     public void DrawPath()
     {
         pathLine.enabled = true;
@@ -87,6 +93,7 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
+    //Funktion um die Nächste Resource "Stone" in umgebung zu suchen
     private void NextStoneResource()
     {
         for (int i = 0; i < rm.stoneCatalog.Count; i++)
@@ -102,6 +109,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Funktion um die Nächste Resource "Wood" in umgebung zu suchen
     private void NextWoodResource()
     {
         for (int i = 0; i < rm.woodCatalog.Count; i++)

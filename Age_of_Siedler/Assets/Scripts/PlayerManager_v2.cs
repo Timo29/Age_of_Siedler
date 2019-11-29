@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Autor: Stöckmann Timo
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,7 +31,6 @@ public class PlayerManager_v2 : MonoBehaviour
                         currentResident.GetComponent<Player>().select.Stop();
                         currentResident.GetComponent<Player>().isSelect = false;
                     }
-                    Debug.Log("Player select");
                     currentResident = hitInfo.transform.gameObject;
                     currentResident.GetComponent<Player>().canvas.SetActive(true);
                     currentResident.GetComponent<Player>().select.Play();
@@ -55,7 +55,6 @@ public class PlayerManager_v2 : MonoBehaviour
             Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hitInfo);
             if (currentResident != null)
             {
-                Debug.Log(hitInfo.transform.tag + " Target Tag");
                 Player player = currentResident.GetComponent<Player>();
                 switch (hitInfo.transform.tag)
                 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Autor: Stöckmann Timo
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,35 +34,41 @@ public class GameManager : MonoBehaviour
         MasterManager.onStartMap += InstanceResourceConts;
     }
 
+    //zieht Stone aus dem Lager ab
     private void DecStone(int stoneAmount)
     {
         stone -= stoneAmount;
         warehouseWood(stone);
     }
 
+    //zieht Wood aus dem Lager ab
     private void DecWood(int woodAmount)
     {
         wood -= woodAmount;
         warehouseWood(wood);
     }
 
+    //fühgt Wood zum lager hinzu
     private void AddWood(float woodAmount)
     {
         wood += woodAmount;
         warehouseWood(wood);
     }
 
+    //fühgt Stone zum lager hinzu
     private void AddStone(float stoneAmount)
     {
         stone += stoneAmount;
         warehouseStone(stone);
     }
 
+    //Builded das NavMesh
     private void ReBuildNavMesh()
     {
         nms.BuildNavMesh();
     }
 
+    //Gibt beim Starten das erste mal die Reouren an das Canvas weiter
     private void InstanceResourceConts()
     {
         warehouseStone(stone);

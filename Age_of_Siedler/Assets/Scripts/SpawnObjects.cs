@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Autor: Stöckmann Timo
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,7 +55,6 @@ public class SpawnObjects : MonoBehaviour
             RaycastHit hitInfo;
             Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hitInfo, groundLayer);
             house.transform.position = new Vector3(hitInfo.point.x, house.transform.position.y, hitInfo.point.z);
-            Debug.Log(spawnBlockCount + " spawn block count");
             if (Input.GetButtonDown("Fire1"))
             {
                 if (spawnBlockCount == 0 && gm.wood >= woodCostMain && gm.stone >= stoneCostMain)
@@ -76,10 +76,7 @@ public class SpawnObjects : MonoBehaviour
         {
             RaycastHit hitInfo;
             Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hitInfo, groundLayer);
-            Debug.Log(hitInfo.transform.gameObject + " Hit GameObject");
-            Debug.Log(hitInfo.transform.gameObject.layer);
             warehouse.transform.position = new Vector3(hitInfo.point.x, warehouse.transform.position.y, hitInfo.point.z);
-            Debug.Log(spawnBlockCount + " spawn block count");
             if (Input.GetButtonDown("Fire1"))
             {
                 if (spawnBlockCount == 0 && gm.wood >= woodCostMain && gm.stone >= stoneCostMain)

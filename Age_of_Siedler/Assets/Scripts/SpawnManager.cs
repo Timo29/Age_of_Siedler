@@ -35,8 +35,8 @@ public class SpawnManager : MonoBehaviour
             onSpawnVillagerStoneCost(costStone);
 
         }
-        else
-            Debug.Log("Nicht genug Resourcen");
+        //else
+            //Debug.Log("Nicht genug Resourcen");
     }
     private void HouseSpawn(int costWood, int costStone)
     {
@@ -46,8 +46,8 @@ public class SpawnManager : MonoBehaviour
             sp.warehouse.SetActive(false);
             sp.showHouse(costWood, costStone);
         }
-        else
-            Debug.Log("Nicht genug Resourcen");
+        //else
+            //Debug.Log("Nicht genug Resourcen");
     }
     private void WarehouseSpawn(int costWood, int costStone)
     {
@@ -57,8 +57,8 @@ public class SpawnManager : MonoBehaviour
             sp.house.SetActive(false);
             sp.showWarehouse(costWood, costStone);
         }
-        else
-            Debug.Log("Nicht genug Resourcen");
+        //else
+            //Debug.Log("Nicht genug Resourcen");
     }
 
 }

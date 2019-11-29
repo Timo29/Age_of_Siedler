@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Autor: Stöckmann Timo
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,24 +11,22 @@ public class ResourceManager : MonoBehaviour
 
     void Start()
     {
-        Resource.onResourceDel += DeleteResourceFromDictionary;
+        Resource.onResourceDel += DeleteResourceFromList;
         stoneCatalog = new List<GameObject>();
         woodCatalog = new List<GameObject>();
         MasterManager.onStartMap += AddAllResources;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            AddAllResources();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.N))
+    //    {
+    //        AddAllResources();
+    //    }
+    //}
 
-    private void DeleteResourceFromDictionary(GameObject deleteGameObject, string tag)
+    private void DeleteResourceFromList(GameObject deleteGameObject, string tag)
     {
-        int tempHash;
-        tempHash = deleteGameObject.GetHashCode();
         switch (tag)
         {
             case "resourceStone":
