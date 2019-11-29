@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public float stone;
 
     public NavMeshSurface nms;
+
+    public Image loadingImage;
 
     public delegate void WarehouseCanvasStoneAmount(float stone);
     public static event WarehouseCanvasStoneAmount warehouseStone;
@@ -63,4 +66,15 @@ public class GameManager : MonoBehaviour
     {
         nms.BuildNavMesh();
     }
+
+    //public void LoadScen()
+    //{
+    //    float loadingTime = 10;
+
+    //    while (!(loadingTime <= 0))
+    //    {
+    //        loadingTime -= UnityEngine.Random.Range(0.1f, 0.6f);
+    //        loadingImage.fillAmount = loadingTime / 10;
+    //    }
+    //}
 }

@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &27260697
 RectTransform:
   m_ObjectHideFlags: 0
@@ -427,9 +427,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 275b88cecedf258448668bc40adcb3e1, type: 2}
-  mapSmall: []
-  mapMedium: []
-  mapLarge: []
 --- !u!4 &143487346
 Transform:
   m_ObjectHideFlags: 0
@@ -2750,8 +2747,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 737057203}
   m_HandleRect: {fileID: 1669634773}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: -40
+  m_MaxValue: 6
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

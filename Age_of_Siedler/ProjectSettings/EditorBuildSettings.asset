@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 1e799362a1ae41e4487e63d808f0ad1f
+  - enabled: 1
+    path: Assets/Scenes/TheGameBeta.unity
+    guid: d6a3f10bcd1b6b54f96c667558fea992
   - enabled: 0
     path: Assets/Scenes/MaximilianDorn.unity
     guid: 469471bcecaef724abc46bf5e2e5fc0d
   - enabled: 0
-    path: Assets/Scenes/TheGameBeta.unity
-    guid: d6a3f10bcd1b6b54f96c667558fea992
-  - enabled: 1
     path: Assets/Scenes/TimoTesting.unity
     guid: 50d3ea99d3999924e97e4cf9fe301f00
   m_configObjects: {}

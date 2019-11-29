@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
     public AudioMixer mixer;
-    private int mapSizeIndex;
-    public GameObject[] mapSmall;
-    public GameObject[] mapMedium;
-    public GameObject[] mapLarge;
-    public List<GameObject[]> listOfMaps;
+    //private int mapSizeIndex;
+    //public GameObject[] mapSmall;
+    //public GameObject[] mapMedium;
+    //public GameObject[] mapLarge;
+    //public List<GameObject[]> listOfMaps;
 
     private void Awake()
     {
@@ -25,14 +26,14 @@ public class MainMenuManager : MonoBehaviour
         mixer.SetFloat("volume", volume);
     }
 
-    public void SetMapSize(int mapSize)
-    {
-        mapSizeIndex = mapSize;
-    }
+    //public void SetMapSize(int mapSize)
+    //{
+    //    mapSizeIndex = mapSize;
+    //}
 
     public void StartGame()
     {
-        Debug.Log(mapSizeIndex);
+        SceneManager.LoadScene(1);
         //Instantiate(listOfMaps[mapSizeIndex][Random.Range(0, listOfMaps[mapSizeIndex].Length)]);
     }
 
