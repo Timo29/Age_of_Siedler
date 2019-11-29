@@ -22,7 +22,6 @@ public class TutorialTexts : MonoBehaviour
 
             childs[i].SetActive(false);
         }
-        Debug.Log("I Am Here");
         tutorialText.SetActive(false);
 
         yield return null;

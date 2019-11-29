@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     private void DecStone(int stoneAmount)
     {
         stone -= stoneAmount;
-        warehouseWood(stone);
+        warehouseStone(stone);
     }
 
     //zieht Wood aus dem Lager ab
