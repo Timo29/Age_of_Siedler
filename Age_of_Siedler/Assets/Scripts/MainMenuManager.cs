@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public int sceneIndex;
     public AudioMixer mixer;
     private int mapSizeIndex;
     public GameObject[] mapSmall;
     public GameObject[] mapMedium;
     public GameObject[] mapLarge;
     public List<GameObject[]> listOfMaps;
+
+    public Canvas loadingCanvas;
 
     private void Awake()
     {
@@ -32,12 +36,22 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log(mapSizeIndex);
+        StartCoroutine(LoadSceneAsync(sceneIndex));
+        //Debug.Log(mapSizeIndex);
         //Instantiate(listOfMaps[mapSizeIndex][Random.Range(0, listOfMaps[mapSizeIndex].Length)]);
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    IEnumerator LoadSceneAsync (int sceneIn)
+    {
+        SceneManager.LoadScene(sceneIn, LoadSceneMode.Additive);
+        yield return new WaitForSeconds(15f);
+        SceneManager.UnloadSceneAsync(sceneIn - 1);
+
+        yield return null;
     }
 }

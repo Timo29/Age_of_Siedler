@@ -17,16 +17,12 @@ public class MasterManager : MonoBehaviour
     IEnumerator MapInitialize()
     {       
         mapGenerator.GenerateMap();
-        Debug.Log("1");
         recourceMapGenerator.GenerateRecources();
-        Debug.Log("2");
 
         yield return new WaitForSeconds(5f);
         combiner.CombineByMaterial();
-        Debug.Log("3");
         combiner.SetLayer();
         yield return new WaitForSeconds(1f);
-        Debug.Log("4");
         onStartMap();
         yield return new WaitForSeconds(2f);
         onCompliteMapBuild();

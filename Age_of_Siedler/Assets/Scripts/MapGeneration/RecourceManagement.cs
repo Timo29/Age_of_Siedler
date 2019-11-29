@@ -6,6 +6,8 @@ public class RecourceManagement : MonoBehaviour
 {
     public ReworkedMapGenerator map;
 
+    public bool rotationOn = false;
+
     public GameObject[] stoneBlock = null;
     public GameObject[] woodBlock = null;
 
@@ -85,13 +87,19 @@ public class RecourceManagement : MonoBehaviour
                 {
                     //May delete 0.5f afterwards
                     block2 = Instantiate(stoneBlock[UnityEngine.Random.Range(0, stoneBlock.Length)], transform, false);
+                    if (rotationOn)
+                    {
                     block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
+                    }
                     block2.transform.localPosition = new Vector3(x + 0.5f, 0, y + 0.5f);
                 }
                 else if (recourceMap[x, y] == 2)
                 {
                     block2 = Instantiate(woodBlock[UnityEngine.Random.Range(0, woodBlock.Length)], transform, false);
-                    block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
+                    if (rotationOn)
+                    {
+                        block2.transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
+                    }
                     block2.transform.localPosition = new Vector3(x + 0.5f, 0, y + 0.5f);
                 }
             }
