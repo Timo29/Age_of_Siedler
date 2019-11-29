@@ -8,6 +8,7 @@ public class MasterManager : MonoBehaviour
     public ReworkedMapGenerator mapGenerator;
     public RecourceManagement recourceMapGenerator;
     public MeshCombiner combiner;
+    public TutorialTexts tutorial;
 
     public delegate void BackeNavMesh ();
     public static event BackeNavMesh onStartMap;
@@ -27,6 +28,8 @@ public class MasterManager : MonoBehaviour
         onStartMap();
         yield return new WaitForSeconds(2f);
         onCompliteMapBuild();
+        yield return new WaitForSeconds(2f);
+        tutorial.ShowTutorialTexts();
 
         yield return null;
     }
